@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
-class U205_variable_functions extends TestCase
+class U113VariableFunctions extends TestCase
 {
     // 
     public function test_that_true_is_true(): void

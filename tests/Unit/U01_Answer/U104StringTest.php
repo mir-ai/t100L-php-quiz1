@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
-class U104_string extends TestCase
+class U104StringTest extends TestCase
 {
     public function test_u100120(): void
     {

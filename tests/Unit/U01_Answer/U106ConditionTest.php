@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
-class U106_condition extends TestCase
+class U106ConditionTest extends TestCase
 {
     public function test_u100140(): void
     {

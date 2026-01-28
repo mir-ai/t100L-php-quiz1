@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
-class U109_advanced_array extends TestCase
+class U109Array2 extends TestCase
 {
     public function test_u100184(): void
     {
