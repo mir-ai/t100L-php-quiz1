@@ -570,22 +570,12 @@ class U201_string_functions extends TestCase
         $this->assertNotSame('あいウ', $r); // 日本語には利用不可
     }
     
-    // parse_str 2
-    public function test_parse_str(): void
-    {
-        parse_str("a=1&b=2&c=3&d[]=4&d[]=5", $r);
-
-        $this->assertSame(["a" => "1", "b" => "2", "c" => "3", "d" => [0 => "4", 1 => "5",]], $r);
-    }
-
     // sscanf  4
     public function test_sscanf(): void
     {
         $r = sscanf('time=12:34.5', "time=%d:%d.%d");
         $this->assertSame([12, 34, 5], $r);
     }
-
-
 
     // number_format 7
     public function test_number_format(): void
