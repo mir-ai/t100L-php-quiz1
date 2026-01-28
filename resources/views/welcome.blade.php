@@ -14,7 +14,7 @@
     {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">ItStuffSolutiotions</a>
+            <a class="navbar-brand" href="#">Laravel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,45 +33,15 @@
     <div class="container my-5">
  
         {{-- Alerts --}}
-        <div class="alert alert-success">Bootstrap 5.3.8 Loaded Successfully!</div>
-        <div class="alert alert-primary">This is a primary alert.</div>
- 
-        {{-- Buttons --}}
-        <div class="mb-4">
-            <button class="btn btn-primary">Primary</button>
-            <button class="btn btn-success">Success</button>
-            <button class="btn btn-danger">Danger</button>
-            <button class="btn btn-outline-dark">Outline</button>
-        </div>
- 
+        <div class="alert alert-success">MIRAiE ミライエ</div>
+
         {{-- Cards --}}
         <div class="row g-4">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Card Title One</h5>
-                        <p class="card-text">This is a short description inside the card.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                    </div>
-                </div>
-            </div>
- 
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title Two</h5>
-                        <p class="card-text">This card includes a button and sample text.</p>
-                        <button class="btn btn-success btn-sm">Explore</button>
-                    </div>
-                </div>
-            </div>
- 
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Card Title Three</h5>
-                        <p class="card-text">Another clean Bootstrap card layout.</p>
-                        <button class="btn btn-outline-primary btn-sm">Details</button>
+                        <h5 class="card-title">ようこそ</h5>
+                        <p class="card-text">これはサンプルページです。</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +52,7 @@
     {{-- Footer --}}
     <footer class="bg-light py-3 border-top mt-5">
         <div class="container text-center">
-            <small>© {{ date('Y') }} ItStuffSolutiotions.io. All rights reserved.</small>
+            <small>© {{ date('Y') }} MIRAiE Corporation All rights reserved.</small>
         </div>
     </footer>
  
