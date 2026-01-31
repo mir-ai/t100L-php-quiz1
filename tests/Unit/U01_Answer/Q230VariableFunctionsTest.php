@@ -166,9 +166,9 @@ class Q230VariableFunctionsTest extends TestCase
     {
         $r = 123;
 
-        // QUESTION
+        // QUIZ
         $a = strval($r);
-        // /QUESTION
+        // /QUIZ
 
         $this->assertTrue(is_string($a));
         $this->assertSame('123', $a);
@@ -178,12 +178,13 @@ class Q230VariableFunctionsTest extends TestCase
     {
         $r = "123";
 
-        // QUESTION
+        // QUIZ
         $a = intval($r);
-        // /QUESTION
+        // /QUIZ
 
         $this->assertTrue(is_numeric($a));
         $this->assertSame(123, $a);
-    }    
+    }
+
 }
 

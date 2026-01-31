@@ -67,7 +67,7 @@ class cp_unit_questions extends Command
 
             $content = file_get_contents($src_file_path);
 
-            // QUESTION - /QUESTION 間を $a = null; に置き換える
+            // QUIZ - /QUIZ 間を $a = null; に置き換える
             $content = $this->eraseAnswer($content);
 
             // namespaceを置き換える
@@ -83,7 +83,7 @@ class cp_unit_questions extends Command
         $this->output->success('Questions Copied.');
     }
 
-    // QUESTION - /QUESTION 間を $a = null; に置き換える
+    // QUIZ - /QUIZ 間を $a = null; に置き換える
     private function eraseAnswer(string $content): string
     {
         $lines = explode("\n", $content);
@@ -101,19 +101,19 @@ class cp_unit_questions extends Command
             // }
 
             if (! $in_question) {
-                // QUESTIONの外
+                // QUIZの外
                 $outs[] = $line;
 
-                if (str_contains($line, ' QUESTION')) {
-                    // QUESTIONを見つけた
+                if (str_contains($line, ' QUIZ')) {
+                    // QUIZを見つけた
                     $in_question = true;
                     $outs[] = "\t\t\$a = null;";
                 }
 
             } else {
-                // QUESTIONの中
+                // QUIZの中
 
-                if (str_contains($line, ' /QUESTION')) {
+                if (str_contains($line, ' /QUIZ')) {
                     $in_question = false;
                     $outs[] = $line;
                 }

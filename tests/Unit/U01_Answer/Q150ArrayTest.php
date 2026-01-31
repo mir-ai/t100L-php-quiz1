@@ -25,9 +25,9 @@ class Q150ArrayTest extends TestCase
         $r = [1, 2];
         $r[] = 3;
 
-        // QUESTION
+        // QUIZ
         $a = [1, 2, 3];
-        // /QUESTION      
+        // /QUIZ      
 
         $this->assertSame($a, $r);
     }
@@ -39,9 +39,9 @@ class Q150ArrayTest extends TestCase
         $r[] = 2;
         $r[] = 3;
 
-        // QUESTION
+        // QUIZ
         $a = [1, 2, 3];
-        // /QUESTION      
+        // /QUIZ      
 
         $this->assertSame($a, $r);
     }
@@ -58,9 +58,9 @@ class Q150ArrayTest extends TestCase
         $r = ['a', 'b'];
         $r[] = 'c';
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'b', 'c'];
-        // /QUESTION      
+        // /QUIZ      
 
         $this->assertSame($a, $r);
     }
@@ -72,9 +72,9 @@ class Q150ArrayTest extends TestCase
         $r[] = 'b';
         $r[] = 'c';
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'b', 'c'];
-        // /QUESTION      
+        // /QUIZ      
 
         $this->assertSame($a, $r);
     }

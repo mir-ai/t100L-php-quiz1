@@ -11,9 +11,9 @@ class Q120BoolTest extends TestCase
         $r = true;
         $r = ! $r;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -23,9 +23,9 @@ class Q120BoolTest extends TestCase
         $r = false;
         $r = ! $r;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -34,9 +34,9 @@ class Q120BoolTest extends TestCase
     {
         $r = true && true;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -45,9 +45,9 @@ class Q120BoolTest extends TestCase
     {
         $r = true && false;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -56,9 +56,9 @@ class Q120BoolTest extends TestCase
     {
         $r = true || true;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -67,9 +67,9 @@ class Q120BoolTest extends TestCase
     {
         $r = true || false;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -78,9 +78,9 @@ class Q120BoolTest extends TestCase
     {
         $r = false || true;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -89,9 +89,9 @@ class Q120BoolTest extends TestCase
     {
         $r = false || false;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }

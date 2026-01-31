@@ -131,6 +131,17 @@ class Q190Array2Test extends TestCase
         $this->assertSame(['first' => 'a', 'second' => 'b', 'third' => 'c'], $r);
     }
 
+    public function test_190_115(): void
+    {
+        $r = [
+            'first'  => 'a',
+            'second' => 'b',
+            'third'  => 'c',
+        ];
+
+        $this->assertSame('a', $r['first']);
+    }
+
     public function test_190_120(): void
     {
         $population_kvs = [
@@ -471,9 +482,9 @@ class Q190Array2Test extends TestCase
 
         // 自分で foreach 文と回答をかいて下さい。
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $a = [
             '東武鉄道の路線総延長は 463.3 キロです。',
@@ -529,9 +540,9 @@ class Q190Array2Test extends TestCase
         $r = [];
 
         // 自分で foreach 文と回答をかいて下さい。
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $a = [
             '東武鉄道の路線総延長は 463.3 キロ、１日の乗降客数は 4524834 人です。',

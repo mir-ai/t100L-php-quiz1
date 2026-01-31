@@ -24,9 +24,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 == 1);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -35,9 +35,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 != 1);
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -46,9 +46,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 == "1");
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -57,9 +57,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (123 == "123");
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -68,9 +68,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 === "1");
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -79,9 +79,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (123 === "123");
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -90,9 +90,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 == 1);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -101,9 +101,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 < 2);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -112,9 +112,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 <= 1);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -123,9 +123,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 <= 2);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -134,9 +134,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 != 2);
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -145,9 +145,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 != 1);
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -156,9 +156,9 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 != 1);
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -167,11 +167,42 @@ class Q160ConditionTest extends TestCase
     {
         $r = (1 <> 1);
 
-        // QUESTION
+        // QUIZ
         $a = false;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
+
+    public function test_160_170(): void
+    {
+        $r = '';
+        $a = '';
+
+        if (! $r) {
+            $a = 'empty';
+        } else {
+            $a = 'not empty';
+        }
+
+        $this->assertSame('empty', $a);
+    }
+
+    public function test_160_180(): void
+    {
+        $r = 0;
+        $a = '';
+
+        if (! $r) {
+            $a = 'empty';
+        } else {
+            $a = 'not empty';
+        }
+
+        $this->assertSame('empty', $a);
+    }
+
+    
+
 }
 

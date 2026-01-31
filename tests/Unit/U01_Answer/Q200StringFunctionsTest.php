@@ -17,9 +17,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = trim(" This is trimmed text.  \n");
 
-        // QUESTION
+        // QUIZ
         $a = "This is trimmed text.";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -29,9 +29,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = sprintf("%04d", 1);
 
-        // QUESTION
+        // QUIZ
         $a = '0001';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -40,9 +40,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = sprintf("%04s",'A');
 
-        // QUESTION
+        // QUIZ
         $a = '000A';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -51,9 +51,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = sprintf("%4s",'A');
 
-        // QUESTION
+        // QUIZ
         $a = '   A';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -64,9 +64,9 @@ class Q200StringFunctionsTest extends TestCase
         //r	「全角」英字を「半角」に変換します。
         $r = mb_convert_kana('ＡＢＣ', 'r');
 
-        // QUESTION
+        // QUIZ
         $a = 'ABC';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -76,9 +76,9 @@ class Q200StringFunctionsTest extends TestCase
         //R	「半角」英字を「全角」に変換します。
         $r = mb_convert_kana('ABC', 'R');
 
-        // QUESTION
+        // QUIZ
         $a = 'ＡＢＣ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -88,9 +88,9 @@ class Q200StringFunctionsTest extends TestCase
         //n	「全角」数字を「半角」に変換します。
         $r = mb_convert_kana('１２３', 'n');
 
-        // QUESTION
+        // QUIZ
         $a = '123';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -100,9 +100,9 @@ class Q200StringFunctionsTest extends TestCase
         //N	「半角」数字を「全角」に変換します。
         $r = mb_convert_kana('123', 'N');
 
-        // QUESTION
+        // QUIZ
         $a = '１２３';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -112,9 +112,9 @@ class Q200StringFunctionsTest extends TestCase
         //a	「全角」英数字を「半角」に変換します。
         $r = mb_convert_kana('１２３ａｂｃ', 'a');
 
-        // QUESTION
+        // QUIZ
         $a = '123abc';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -124,9 +124,9 @@ class Q200StringFunctionsTest extends TestCase
         //A	「半角」英数字を「全角」に変換します （"a", "A" オプションに含まれる文字は、U+0022, U+0027, U+005C, U+007Eを除く U+0021 - U+007E の範囲です）。
         $r = mb_convert_kana('123abc', 'A');
 
-        // QUESTION
+        // QUIZ
         $a = '１２３ａｂｃ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -136,9 +136,9 @@ class Q200StringFunctionsTest extends TestCase
         //s	「全角」スペースを「半角」に変換します（U+3000 -> U+0020）。
         $r = mb_convert_kana('　', 's');
 
-        // QUESTION
+        // QUIZ
         $a = ' ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -148,9 +148,9 @@ class Q200StringFunctionsTest extends TestCase
         //S	「半角」スペースを「全角」に変換します（U+0020 -> U+3000）。
         $r = mb_convert_kana(' ', 'S');
 
-        // QUESTION
+        // QUIZ
         $a = '　';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -160,9 +160,9 @@ class Q200StringFunctionsTest extends TestCase
         //k	「全角カタカナ」を「半角カタカナ」に変換します。
         $r = mb_convert_kana('アイウ', 'k');
 
-        // QUESTION
+        // QUIZ
         $a = 'ｱｲｳ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -172,9 +172,9 @@ class Q200StringFunctionsTest extends TestCase
         //K	「半角カタカナ」を「全角カタカナ」に変換します。
         $r = mb_convert_kana('ｱｲｳ', 'K');
 
-        // QUESTION
+        // QUIZ
         $a = 'アイウ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -184,9 +184,9 @@ class Q200StringFunctionsTest extends TestCase
         //h	「全角ひらがな」を「半角カタカナ」に変換します。
         $r = mb_convert_kana('あいう', 'h');
 
-        // QUESTION
+        // QUIZ
         $a = 'ｱｲｳ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -196,9 +196,9 @@ class Q200StringFunctionsTest extends TestCase
         //H	「半角カタカナ」を「全角ひらがな」に変換します。
         $r = mb_convert_kana('ｱｲｳ', 'H');
 
-        // QUESTION
+        // QUIZ
         $a = 'あいう';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -208,9 +208,9 @@ class Q200StringFunctionsTest extends TestCase
         //c	「全角カタカナ」を「全角ひらがな」に変換します。
         $r = mb_convert_kana('アイウ', 'c');
 
-        // QUESTION
+        // QUIZ
         $a = 'あいう';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -220,9 +220,9 @@ class Q200StringFunctionsTest extends TestCase
         //C	「全角ひらがな」を「全角カタカナ」に変換します。
         $r = mb_convert_kana('あいう', 'C');
 
-        // QUESTION
+        // QUIZ
         $a = 'アイウ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -232,9 +232,9 @@ class Q200StringFunctionsTest extends TestCase
         //V	濁点付きの文字を一文字に変換します。"K", "H" と共に使用します。        
         $r = mb_convert_kana('ｶﾞｷﾞｸﾞｹﾞｺﾞ', 'KV');
 
-        // QUESTION
+        // QUIZ
         $a = 'ガギグゲゴ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -244,9 +244,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strlen('abc');
 
-        // QUESTION
+        // QUIZ
         $a = 3;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -265,9 +265,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_strlen('あいう');
 
-        // QUESTION
+        // QUIZ
         $a = 3;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_strlenは日本語OK
     }
@@ -277,9 +277,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_strwidth('あいうえお');
 
-        // QUESTION
+        // QUIZ
         $a = 10;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_strwidth 全角文字は2でカウント。
     }
@@ -289,9 +289,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtolower('Abc');
 
-        // QUESTION
+        // QUIZ
         $a = 'abc';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -300,9 +300,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtolower('Ａｂｃ');
 
-        // QUESTION
+        // QUIZ
         $a = 'ａｂｃ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertNotSame($a, $r); // strtolower は日本語不可
     }
@@ -312,9 +312,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_strtolower('Ａｂｃ');
 
-        // QUESTION
+        // QUIZ
         $a = 'ａｂｃ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_strtolower は日本語OK
     }
@@ -324,9 +324,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtoupper('Abc');
 
-        // QUESTION
+        // QUIZ
         $a = 'ABC';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -335,9 +335,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtoupper('Ａｂｃ');
 
-        // QUESTION
+        // QUIZ
         $a = 'ＡＢＣ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertNotSame($a, $r);
     }
@@ -347,9 +347,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_strtoupper('Ａｂｃ');
 
-        // QUESTION
+        // QUIZ
         $a = 'ＡＢＣ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -359,9 +359,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_starts_with('This is a pen.', 'This is ');
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -370,9 +370,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_starts_with('これは、ペンです。', 'これは、');
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -382,9 +382,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_ends_with('This is a pen.', ' pen.');
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -394,9 +394,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_contains('This is a pen.', ' is a ');
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -405,9 +405,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_contains('これは、ペンです。', '、ペン');
 
-        // QUESTION
+        // QUIZ
         $a = true;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -417,9 +417,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strpos('abcde', 'a');
 
-        // QUESTION
+        // QUIZ
         $a = 0;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -428,9 +428,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strpos('abcde', 'bc');
 
-        // QUESTION
+        // QUIZ
         $a = 1;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -439,9 +439,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strpos('abcde', 'de');
 
-        // QUESTION
+        // QUIZ
         $a = 3;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -450,9 +450,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strpos('あいう', 'いう');
 
-        // QUESTION
+        // QUIZ
         $a = 1;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertNotSame($a, $r); // 日本語には使えない
     }
@@ -462,9 +462,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_strpos('あいう', 'いう');
 
-        // QUESTION
+        // QUIZ
         $a = 1;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_strpos は日本語OK
     }
@@ -474,9 +474,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('abcde', 1);
 
-        // QUESTION
+        // QUIZ
         $a = 'bcde';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -485,9 +485,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('abcde', 1, 2);
 
-        // QUESTION
+        // QUIZ
         $a = 'bc';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -496,9 +496,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('abcde', -1);
 
-        // QUESTION
+        // QUIZ
         $a = 'e';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -507,9 +507,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('abcde', -2);
 
-        // QUESTION
+        // QUIZ
         $a = 'de';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -518,9 +518,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('abcde', -2, 1);
 
-        // QUESTION
+        // QUIZ
         $a = 'd';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -529,9 +529,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = substr('あいうえお', 1);
 
-        // QUESTION
+        // QUIZ
         $a = 'いうえお';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertNotSame($a, $r); // substr 日本語には利用不可
     }
@@ -541,9 +541,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_substr('あいうえお', 1);
 
-        // QUESTION
+        // QUIZ
         $a = 'いうえお';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_substr 日本語OK
     }
@@ -552,9 +552,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_substr('あいうえお', 1, 2);
 
-        // QUESTION
+        // QUIZ
         $a = 'いう';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // mb_substr 日本語OK
     }
@@ -564,9 +564,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_replace('cd', 'CD', 'abcdef');
 
-        // QUESTION
+        // QUIZ
         $a = 'abCDef';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -575,9 +575,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_replace(['b', 'c'], ['B', 'C'], 'abcdef');
 
-        // QUESTION
+        // QUIZ
         $a = 'aBCdef';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -586,9 +586,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_replace('い', 'イ', 'あいうえお');
 
-        // QUESTION
+        // QUIZ
         $a = 'あイうえお';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // 日本語も利用可能
     }
@@ -597,9 +597,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_replace(['う', 'え'], ['ウ', 'エ'], 'あいうえお');
 
-        // QUESTION
+        // QUIZ
         $a = 'あいウエお';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -610,9 +610,9 @@ class Q200StringFunctionsTest extends TestCase
         // 予期せぬ結果に注意。('1'=>'one', 'one'=>'two')
         $r = str_replace(['1', 'one'], ['one', 'two'], '1');
 
-        // QUESTION
+        // QUIZ
         $a = 'two';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -622,9 +622,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = preg_replace('/\s+/', '-', 'This is  a  pen.'); //連続する空白を - にする
 
-        // QUESTION
+        // QUIZ
         $a = 'This-is-a-pen.';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -633,9 +633,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = preg_replace('/[^0-9]/', '', '090-1234-5678'); //数字以外を削除
 
-        // QUESTION
+        // QUIZ
         $a = '09012345678';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -646,9 +646,9 @@ class Q200StringFunctionsTest extends TestCase
         // さまざまなハイフンらしきものを - に統一する
         $r = mb_ereg_replace("[‐‑–—―−ｰ]", "-", '‐‑–—―−ｰ');
 
-        // QUESTION
+        // QUIZ
         $a = '-------';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -658,9 +658,9 @@ class Q200StringFunctionsTest extends TestCase
         // さまざまなクオーティーションらしきものを - に統一する
         $r = mb_ereg_replace("[´’‘゜'“´”\"\❛]", "'", "´’‘゜'“´”\"❛");
 
-        // QUESTION
+        // QUIZ
         $a = "''''''''''";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -670,9 +670,9 @@ class Q200StringFunctionsTest extends TestCase
         // 全角カタカナのみを残したい
         $r = mb_ereg_replace("[^ァ-ヶ]", "", "アイウエオかきくけこＡＢＣabc");
 
-        // QUESTION
+        // QUIZ
         $a = "アイウエオ";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -689,9 +689,9 @@ class Q200StringFunctionsTest extends TestCase
             $n3 = $matches[3] ?? '';
         };
 
-        // QUESTION
+        // QUIZ
         $a = ['26', '02', '28'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, [$n1, $n2, $n3]);
     }    
@@ -701,9 +701,9 @@ class Q200StringFunctionsTest extends TestCase
         // ひらがなを含む
         $has_hiragana = preg_match('/[ぁ-ん]/u', 'イチニチイチゼン一日一善', $match);
 
-        // QUESTION
+        // QUIZ
         $a = 0;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $has_hiragana);
     }    
@@ -713,9 +713,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = preg_match_all('/v=(\d+)/', 'v=1, v=20, v=300', $matches);
 
-        // QUESTION
+        // QUIZ
         $a = [["v=1", "v=20", "v=300"], ["1", "20", "300"]];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $matches);
     }
@@ -725,9 +725,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = mb_ereg('ｖ=(\d+)', 'ｖ=1, ｖ=20, ｖ=300', $matches);
 
-        // QUESTION
+        // QUIZ
         $a = ["ｖ=1", "1"];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $matches);
     }
@@ -738,9 +738,9 @@ class Q200StringFunctionsTest extends TestCase
         $v = [1,2,3];
         $r = json_encode($v);
 
-        // QUESTION
+        // QUIZ
         $a = '[1,2,3]';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -750,9 +750,9 @@ class Q200StringFunctionsTest extends TestCase
         $v = ['a', 'b', 'c'];
         $r = json_encode($v);
 
-        // QUESTION
+        // QUIZ
         $a = '["a","b","c"]';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -766,9 +766,9 @@ class Q200StringFunctionsTest extends TestCase
         ];
         $r = json_encode($v);
 
-        // QUESTION
+        // QUIZ
         $a = '{"Tokyo":14047594,"Osaka":8837685,"Aichi":7542415}';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -782,9 +782,9 @@ class Q200StringFunctionsTest extends TestCase
         ];
         $r = json_encode($v); // 漢字はエスケープされてしまう
 
-        // QUESTION
+        // QUIZ
         $a = '{"\u6771\u4eac\u90fd":14047594,"\u5927\u962a\u5e9c":8837685,"\u611b\u77e5\u770c":7542415}';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -811,9 +811,9 @@ class Q200StringFunctionsTest extends TestCase
 
         $r = json_encode($v, JSON_UNESCAPED_UNICODE); // JSON_UNESCAPED_UNICODEをつけると漢字も表示可能に
 
-        // QUESTION
+        // QUIZ
         $a = '{"東京都":{"2010":13159388,"2015":13515271,"2020":14047594},"大阪府":{"2010":8865245,"2015":8839469,"2020":8837685},"愛知県":{"2010":7410719,"2015":7483128,"2020":7542415}}';
-        // /QUESTION
+        // /QUIZ
         
         $this->assertSame($a, $r);
     }
@@ -893,9 +893,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = rtrim("\n This is trimmed text.  \n");
 
-        // QUESTION
+        // QUIZ
         $a = "\n This is trimmed text.";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -905,9 +905,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strip_tags('<p>お問い合わせは<b><a href="#">こちら</a></b></p>');
 
-        // QUESTION
+        // QUIZ
         $a = "お問い合わせはこちら";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -918,9 +918,9 @@ class Q200StringFunctionsTest extends TestCase
         // １文字ごとに切る
         $r = preg_split("//u", "電話番号は 090-1234-5678 です。", -1, PREG_SPLIT_NO_EMPTY);
 
-        // QUESTION
+        // QUIZ
         $a = ['電','話','番','号','は',' ','0','9','0','-','1','2','3','4','-','5','6','7','8',' ','で','す','。'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -930,9 +930,9 @@ class Q200StringFunctionsTest extends TestCase
         // 母音で切る
         $r = preg_split("/[aiueo]+/", "korewa nihongo desu");
 
-        // QUESTION
+        // QUIZ
         $a = ['k', 'r','w',' n','h','ng',' d','s',''];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -942,9 +942,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = str_repeat('*', 5);
 
-        // QUESTION
+        // QUIZ
         $a = '*****';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -954,9 +954,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtr('abc', 'c', 'C');
 
-        // QUESTION
+        // QUIZ
         $a = 'abC';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -965,9 +965,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = strtr('あいう', 'う', 'ウ');
 
-        // QUESTION
+        // QUIZ
         $a = 'あいウ';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertNotSame($a, $r); // 日本語には利用不可
     }
@@ -977,9 +977,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = sscanf('time=12:34.5', "time=%d:%d.%d");
 
-        // QUESTION
+        // QUIZ
         $a = [12, 34, 5];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -989,9 +989,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = number_format(1234567890);
 
-        // QUESTION
+        // QUIZ
         $a = '1,234,567,890';
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -1001,9 +1001,9 @@ class Q200StringFunctionsTest extends TestCase
     {
         $r = nl2br("これは\n改行付きの\nテキスト\nです");
 
-        // QUESTION
+        // QUIZ
         $a = "これは<br />\n改行付きの<br />\nテキスト<br />\nです";
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }

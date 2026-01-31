@@ -10,9 +10,9 @@ class Q130MathTest extends TestCase
     {
         $r = 1 + 1;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -21,9 +21,9 @@ class Q130MathTest extends TestCase
     {
         $r = 1 - 1;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -32,9 +32,9 @@ class Q130MathTest extends TestCase
     {
         $r = 1 * 2;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -43,9 +43,9 @@ class Q130MathTest extends TestCase
     {
         $r = 4 / 2;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -54,9 +54,9 @@ class Q130MathTest extends TestCase
     {
         $r = 4 % 3;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -65,9 +65,9 @@ class Q130MathTest extends TestCase
     {
         $r = 5 % 3;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -76,11 +76,61 @@ class Q130MathTest extends TestCase
     {
         $r = 6 % 3;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
+
+    public function test_130_080(): void
+    {
+        $r = 1;
+        $r++;
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    public function test_130_090(): void
+    {
+        $r = 2;
+        $r--;
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    public function test_130_100(): void
+    {
+        $r = 1;
+        $r += 2;
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    public function test_130_110(): void
+    {
+        $r = 3;
+        $r -= 2;
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+
 }
 

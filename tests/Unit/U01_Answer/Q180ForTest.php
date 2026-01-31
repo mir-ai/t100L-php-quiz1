@@ -11,9 +11,9 @@ class Q180ForTest extends TestCase
         $r = 1;
         $r++;
 
-        // QUESTION
+        // QUIZ
         $a = 2;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -24,9 +24,9 @@ class Q180ForTest extends TestCase
         $r++;
         $r++;
 
-        // QUESTION
+        // QUIZ
         $a = 4;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -39,9 +39,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -54,9 +54,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2, 3];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -66,9 +66,9 @@ class Q180ForTest extends TestCase
         $r = 1;
         $r += 2;
 
-        // QUESTION
+        // QUIZ
         $a = 3;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -79,9 +79,9 @@ class Q180ForTest extends TestCase
         $r += 2;
         $r += 2;
 
-        // QUESTION
+        // QUIZ
         $a = 5;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -94,9 +94,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 2, 4];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -109,9 +109,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 2, 4, 6];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -126,9 +126,9 @@ class Q180ForTest extends TestCase
             $i++;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -143,9 +143,9 @@ class Q180ForTest extends TestCase
             $i += 2;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 2, 4];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -160,9 +160,9 @@ class Q180ForTest extends TestCase
             $i += 2;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 2, 4, 6];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -177,9 +177,9 @@ class Q180ForTest extends TestCase
             $i += $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [1, 2, 4, 8];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -195,9 +195,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2, 4, 5];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -213,9 +213,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [3, 4, 5];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -231,9 +231,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2, 3];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -249,9 +249,9 @@ class Q180ForTest extends TestCase
             $r[] = $i;
         }
 
-        // QUESTION
+        // QUIZ
         $a = [0, 1, 2, 3];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }

@@ -25,9 +25,9 @@ class Q170IfTest extends TestCase
             $r[] = 'b';
         }
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'b'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -41,9 +41,9 @@ class Q170IfTest extends TestCase
             $r[] = 'b';
         }
 
-        // QUESTION
+        // QUIZ
         $a = ['a'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -59,9 +59,9 @@ class Q170IfTest extends TestCase
             $r[] = 'c';
         }
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'b'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -77,9 +77,9 @@ class Q170IfTest extends TestCase
             $r[] = 'c';
         }
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'c'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -97,9 +97,9 @@ class Q170IfTest extends TestCase
             $r[] = 'd';
         }
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'c'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -116,9 +116,9 @@ class Q170IfTest extends TestCase
             default => 'e',
         };
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'b'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -135,9 +135,9 @@ class Q170IfTest extends TestCase
             default => 'e',
         };
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'd'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -154,9 +154,9 @@ class Q170IfTest extends TestCase
             default => 'e',
         };
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'e'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -175,9 +175,9 @@ class Q170IfTest extends TestCase
             default => 'e',
         };
 
-        // QUESTION
+        // QUIZ
         $a = ['a', 'c'];
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }

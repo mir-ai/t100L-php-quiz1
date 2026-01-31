@@ -4,15 +4,17 @@ namespace Tests\Unit\U10_Obata;
 
 use PHPUnit\Framework\TestCase;
 
+// 文字列型
+// https://www.php.net/manual/ja/language.types.string.php
 class Q140StringTest extends TestCase
 {
     public function test_140_010(): void
     {
         $r = 'abc';
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -21,9 +23,9 @@ class Q140StringTest extends TestCase
     {
         $r = "abc";
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -33,9 +35,9 @@ class Q140StringTest extends TestCase
         $n = 1;
         $r = 'abc{$n}';
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -45,9 +47,9 @@ class Q140StringTest extends TestCase
         $n = 1;
         $r = "abc{$n}";
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -57,9 +59,9 @@ class Q140StringTest extends TestCase
         $s = 'def';
         $r = "abc{$s}";
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -68,9 +70,9 @@ class Q140StringTest extends TestCase
     {
         $r = 'a' . 'b' . 'c';
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -79,9 +81,23 @@ class Q140StringTest extends TestCase
     {
         $r = 'a' . 'b' . 'c' . 1 . 2 . 3;
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    public function test_140_071(): void
+    {
+        $r = '';
+        $r .= '1';
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $a = '12';
 
         $this->assertSame($a, $r);
     }
@@ -90,9 +106,9 @@ class Q140StringTest extends TestCase
     {
         $r = '\n';
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -101,9 +117,33 @@ class Q140StringTest extends TestCase
     {
         $r = ("\n" == '\n');
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    // シングルクォートでむと、\t は \t という文字になります。
+    public function test_140_091(): void
+    {
+        $r = '\t';
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+    // ダブルクォートで囲むと、\t はタブになります。
+    public function test_140_092(): void
+    {
+        $r = ("\t" == '\t');
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -112,9 +152,9 @@ class Q140StringTest extends TestCase
     {
         $r = ('"' == "\"");
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // "
     }
@@ -123,11 +163,42 @@ class Q140StringTest extends TestCase
     {
         $r = ("'" == '\'');
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r); // '
     }
+
+    public function test_140_120(): void
+    {
+        $r = ("\\" == '\\');
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r); # \
+    }
+
+    public function test_140_130(): void
+    {
+        $r = <<<END
+    *
+   * *
+  *   *
+ *     *
+*********
+END;
+
+        // QUIZ
+		$a = null;
+        // /QUIZ
+
+        $this->assertSame($a, $r);
+    }
+
+
+
 }
 

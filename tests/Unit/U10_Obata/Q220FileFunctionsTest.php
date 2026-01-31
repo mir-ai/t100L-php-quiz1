@@ -129,9 +129,9 @@ class Q220FileFunctionsTest extends TestCase
         $xml = '';
 
         // $urlからコンテンツを取得して $xml 変数に入れて下さい。
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertTrue(str_contains($xml, '<title>気象特別警報・警報・注意報</title>'));
     }
@@ -142,9 +142,9 @@ class Q220FileFunctionsTest extends TestCase
         $content = 'THIS IS UNITTEST TEXT.';
 
         // $tmpfile に $contentを保存して下さい。
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $c = file_get_contents($tmpfile);
         $this->assertTrue(str_contains($c, $content));

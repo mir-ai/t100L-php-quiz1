@@ -17,9 +17,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_merge([1, 2, 3], [4, 5, 6]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -40,9 +40,9 @@ class Q210ArrayFunctionsTest extends TestCase
             ]
         );
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -64,9 +64,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = implode(', ', ['a', 'b', 'c']);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -76,9 +76,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = explode(', ', 'a, b, c');
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -88,9 +88,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array('a', ['a', 'b', 'c']);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -99,9 +99,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array('d', ['a', 'b', 'c']);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -110,9 +110,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array('d', ['a', 'b', 'c']);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -121,9 +121,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array(1, [1, 2, 3]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -132,9 +132,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array("1", [1, 2, 3]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -143,9 +143,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = in_array("1", [1, 2, 3], true); // 第三引数にtrueを指定して型を厳密に比較することもできる
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -161,9 +161,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         $r = array_keys($population_kvs);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -179,9 +179,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         $r = array_values($population_kvs);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -191,9 +191,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_unique([1, 2, 3, 4, 3, 2, 1]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -204,9 +204,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $r = array_filter([1, 2, 3, 0, '', [], null, 4, 5, 6]);
         $r = array_values($r); // 構造が変わってしまうので、array_valuesで整理
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -216,9 +216,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_chunk([1, 2, 3, 4, 5, 6, 7], 3);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
 
@@ -229,9 +229,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_slice([1, 2, 3, 4, 5], 2, 2);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -240,9 +240,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_slice([1, 2, 3, 4, 5], -2, 2);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -252,9 +252,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_reverse([1, 2, 3]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -265,9 +265,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $r = array_intersect([1, 2, 3], [2, 3, 4, 5]);
         $r = array_values($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -278,9 +278,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $r = array_diff([1, 2, 3, 4], [3, 4, 5]);
         $r = array_values($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -290,9 +290,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $r = array_diff(['a', 'b', 'c', 'd'], ['b'], ['c']);
         $r = array_values($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -315,9 +315,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_count_values([1, 1, 1, 2, 2, 3]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -333,9 +333,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         $r = array_flip($population_kvs);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -346,9 +346,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $v = [1, 2, 3];
         $r = array_pop($v);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
 
@@ -361,9 +361,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $v = [1, 2, 3];
         array_unshift($v, -1, 0);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $v);
     }
@@ -374,9 +374,9 @@ class Q210ArrayFunctionsTest extends TestCase
         $v = [1, 2, 3];
         $r = array_shift($v);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -401,9 +401,9 @@ class Q210ArrayFunctionsTest extends TestCase
     {
         $r = array_sum([1, 2, 3, 4, 5]);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -420,9 +420,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         asort($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -439,9 +439,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         arsort($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -458,9 +458,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         ksort($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -477,9 +477,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         krsort($r);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -508,9 +508,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         $r = array_column($prefectures, 'population');
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $r);
     }
@@ -541,9 +541,9 @@ class Q210ArrayFunctionsTest extends TestCase
 
         array_multisort($populations, $prefectures);
 
-        // QUESTION
+        // QUIZ
 		$a = null;
-        // /QUESTION
+        // /QUIZ
 
         $this->assertSame($a, $prefectures);
     }
