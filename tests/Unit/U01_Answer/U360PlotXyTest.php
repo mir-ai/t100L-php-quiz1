@@ -12,7 +12,9 @@ class U360PlotXyTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // クイズ： getXmlString() のテキストから、 getReportTable() の配列を作成して下さい。
+    // 課題 : キャンバス上への座標によるプロット
+
+    // クイズ： getInput() のテキストから、 getOutput() の配列を作成して下さい。
     // これが入力データの配列
     private function getInput(): array
     {
@@ -62,6 +64,7 @@ class U360PlotXyTest extends TestCase
     private function getOutput(): array
     {
         return [
+            #000000000011
             #0123456789AB
             '  @@@@@@@@  ', #0 
             ' @        @ ', #1 
@@ -74,7 +77,7 @@ class U360PlotXyTest extends TestCase
         ];
     }
 
-    // 要素分解１
+    // ヒント 要素分解１
     // 縦横の最大サイズを作成する
     public function test_360_020_find_max_x_y() : void
     {
@@ -93,7 +96,7 @@ class U360PlotXyTest extends TestCase
         $this->assertSame(7, $max_y);
     }
 
-    // 要素分解２
+    // ヒント 要素分解２
     // 空白のみのキャンバスを作成する
     public function test_350_030_flip_2d_array() : void
     {
@@ -105,20 +108,20 @@ class U360PlotXyTest extends TestCase
             $canvas[] = array_fill(0, $max_x + 1, ' ');
         }
 
-        $a = [
+        $expected = [
             [' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' '],
         ];
 
-        $this->assertSame($a, $canvas);
+        $this->assertSame($expected, $canvas);
     }
 
-    // 要素分解3
+    // ヒント 要素分解3
     // 座標データに従って、キャンバス（配列）に文字を描く
     public function test_350_040_2d_array_to_texts(): void
     {
-        $r = [
+        $actual = [
             [' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' '],
@@ -137,16 +140,16 @@ class U360PlotXyTest extends TestCase
             $r[$y][$x] = $char;
         }
 
-        $a = [
+        $expected = [
             ['A', 'B', 'C', ' '],
             [' ', ' ', 'D', ' '],
             [' ', ' ', 'E', ' '],
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解4
+    // ヒント 要素分解4
     // 座標データに従って、キャンバス（配列）に文字を描く
     public function test_350_040_draw_2d_array(): void
     {
@@ -156,22 +159,22 @@ class U360PlotXyTest extends TestCase
             [' ', ' ', 'E', ' '],
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($v as $line) {
             $r[] = implode('', $line);
             echo implode('', $line) . "\n";
         }
 
-        $a = [
+        $expected = [
             'ABC ',
             '  D ',
             '  E ',
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // じぶんでやってみよう
+    // やってみよう
     // getInputの値を読んで、getOutputを作って下さい。
     public function test_350_draw(): void
     {
@@ -202,16 +205,16 @@ class U360PlotXyTest extends TestCase
         }
 
         // 要素分解4. 表示する
-        $r = [];
+        $actual = [];
         foreach ($canvas as $line) {
             $r[] = implode('', $line);
             echo implode('', $line) . "\n";
         }
 
         // /QUIZ
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
 }        

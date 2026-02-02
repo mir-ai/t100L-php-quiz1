@@ -4,6 +4,11 @@ namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
+// String 関数
+// https://www.php.net/manual/ja/ref.strings.php
+
+// マルチバイト文字列 関数
+// https://www.php.net/manual/ja/ref.mbstring.php
 class U200StringFunctionsTest extends TestCase
 {
     // 
@@ -15,666 +20,681 @@ class U200StringFunctionsTest extends TestCase
     // trim  461
     public function test_200_020_trim1(): void
     {
-        $r = trim(" This is trimmed text.  \n");
+        $actual = trim(" This is trimmed text.  \n");
 
         // QUIZ
-        $a = "This is trimmed text.";
+        $expected = "This is trimmed text.";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // sprintf 89
     public function test_200_030_sprintf_pad_zero(): void
     {
-        $r = sprintf("%04d", 1);
+        $actual = sprintf("%04d", 1);
+
+        $expected = '0001';
+
+        $this->assertSame($expected, $actual);
+    }
+
+    public function test_200_031_sprintf_pad_zero2(): void
+    {
+        $actual = sprintf("%05d", 2);
 
         // QUIZ
-        $a = '0001';
+        $expected = '00002';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_040_sprintf_zero_pad_str(): void
     {
-        $r = sprintf("%04s",'A');
+        $actual = sprintf("%04s",'A');
+
+        $expected = '000A';
+
+        $this->assertSame($expected, $actual);
+    }
+
+    public function test_200_041_sprintf_zero_pad_str2(): void
+    {
+        $actual = sprintf("%05s",'B');
 
         // QUIZ
-        $a = '000A';
+        $expected = '0000B';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_050_sprintf_zero_pad_space(): void
     {
-        $r = sprintf("%4s",'A');
+        $actual = sprintf("%4s",'A');
+
+        $expected = '   A';
+
+        $this->assertSame($expected, $actual);
+    }
+
+    public function test_200_051_sprintf_zero_pad_space2(): void
+    {
+        $actual = sprintf("%5s",'B');
 
         // QUIZ
-        $a = '   A';
+        $expected = '    B';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // mb_convert_kana 75
+    // https://www.php.net/manual/ja/function.mb-convert-kana.php
     public function test_200_060_mb_convert_kana_r(): void
     {
         //r	「全角」英字を「半角」に変換します。
-        $r = mb_convert_kana('ＡＢＣ', 'r');
+        $actual = mb_convert_kana('ＡＢＣ', 'r');
 
-        // QUIZ
-        $a = 'ABC';
-        // /QUIZ
+        $expected = 'ABC';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_070_mb_convert_kana_R2(): void
     {
         //R	「半角」英字を「全角」に変換します。
-        $r = mb_convert_kana('ABC', 'R');
+        $actual = mb_convert_kana('ABC', 'R');
 
         // QUIZ
-        $a = 'ＡＢＣ';
+        $expected = 'ＡＢＣ';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_080_mb_convert_kana_n(): void
     {
         //n	「全角」数字を「半角」に変換します。
-        $r = mb_convert_kana('１２３', 'n');
+        $actual = mb_convert_kana('１２３', 'n');
 
         // QUIZ
-        $a = '123';
+        $expected = '123';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_090_mb_convert_kana_N2(): void
     {
         //N	「半角」数字を「全角」に変換します。
-        $r = mb_convert_kana('123', 'N');
+        $actual = mb_convert_kana('123', 'N');
 
-        // QUIZ
-        $a = '１２３';
-        // /QUIZ
+        $expected = '１２３';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_100_mb_convert_kana_a(): void
     {
         //a	「全角」英数字を「半角」に変換します。
-        $r = mb_convert_kana('１２３ａｂｃ', 'a');
+        $actual = mb_convert_kana('１２３ａｂｃ', 'a');
 
         // QUIZ
-        $a = '123abc';
+        $expected = '123abc';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_110_mb_convert_kana_A2(): void
     {
         //A	「半角」英数字を「全角」に変換します （"a", "A" オプションに含まれる文字は、U+0022, U+0027, U+005C, U+007Eを除く U+0021 - U+007E の範囲です）。
-        $r = mb_convert_kana('123abc', 'A');
+        $actual = mb_convert_kana('123abc', 'A');
 
-        // QUIZ
-        $a = '１２３ａｂｃ';
-        // /QUIZ
+        $expected = '１２３ａｂｃ';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_120_mb_convert_kana_s(): void
     {
         //s	「全角」スペースを「半角」に変換します（U+3000 -> U+0020）。
-        $r = mb_convert_kana('　', 's');
+        $actual = mb_convert_kana('　', 's');
 
-        // QUIZ
-        $a = ' ';
-        // /QUIZ
+        $expected = ' ';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_130_mb_convert_kana_S2(): void
     {
         //S	「半角」スペースを「全角」に変換します（U+0020 -> U+3000）。
-        $r = mb_convert_kana(' ', 'S');
+        $actual = mb_convert_kana(' ', 'S');
 
         // QUIZ
-        $a = '　';
+        $expected = '　';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_140_mb_convert_kana_k(): void
     {
         //k	「全角カタカナ」を「半角カタカナ」に変換します。
-        $r = mb_convert_kana('アイウ', 'k');
+        $actual = mb_convert_kana('アイウ', 'k');
 
-        // QUIZ
-        $a = 'ｱｲｳ';
-        // /QUIZ
+        $expected = 'ｱｲｳ';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_150_mb_convert_kana_K2(): void
     {
         //K	「半角カタカナ」を「全角カタカナ」に変換します。
-        $r = mb_convert_kana('ｱｲｳ', 'K');
+        $actual = mb_convert_kana('ｱｲｳ', 'K');
 
         // QUIZ
-        $a = 'アイウ';
+        $expected = 'アイウ';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_160_mb_convert_kana_h(): void
     {
         //h	「全角ひらがな」を「半角カタカナ」に変換します。
-        $r = mb_convert_kana('あいう', 'h');
+        $actual = mb_convert_kana('あいう', 'h');
 
-        // QUIZ
-        $a = 'ｱｲｳ';
-        // /QUIZ
+        $expected = 'ｱｲｳ';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_170_mb_convert_kana_H2(): void
     {
         //H	「半角カタカナ」を「全角ひらがな」に変換します。
-        $r = mb_convert_kana('ｱｲｳ', 'H');
+        $actual = mb_convert_kana('ｱｲｳ', 'H');
 
         // QUIZ
-        $a = 'あいう';
+        $expected = 'あいう';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_180_mb_convert_kana_c(): void
     {
         //c	「全角カタカナ」を「全角ひらがな」に変換します。
-        $r = mb_convert_kana('アイウ', 'c');
+        $actual = mb_convert_kana('アイウ', 'c');
 
-        // QUIZ
-        $a = 'あいう';
-        // /QUIZ
+        $expected = 'あいう';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_190_mb_convert_kana_C2(): void
     {
         //C	「全角ひらがな」を「全角カタカナ」に変換します。
-        $r = mb_convert_kana('あいう', 'C');
+        $actual = mb_convert_kana('あいう', 'C');
 
         // QUIZ
-        $a = 'アイウ';
+        $expected = 'アイウ';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_200_mb_convert_kana_KV(): void
     {
         //V	濁点付きの文字を一文字に変換します。"K", "H" と共に使用します。        
-        $r = mb_convert_kana('ｶﾞｷﾞｸﾞｹﾞｺﾞ', 'KV');
+        $actual = mb_convert_kana('ｶﾞｷﾞｸﾞｹﾞｺﾞ', 'KV');
 
         // QUIZ
-        $a = 'ガギグゲゴ';
+        $expected = 'ガギグゲゴ';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // strlen  44
     public function test_200_210_strlen(): void
     {
-        $r = strlen('abc');
+        $actual = strlen('abc');
 
         // QUIZ
-        $a = 3;
+        $expected = 3;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_220_strlen_jp(): void
     {
-        $r = strlen('あいう');
+        $actual = strlen('あいう');
 
-        $a = 3;
+        // strlenは日本語不可なのでとんでもない値が入ります。
+        // QUIZ
+        $expected = 9;
+        // /QUIZ
 
-        $this->assertNotSame($a, $r); // strlenは日本語不可
+        $this->assertSame($expected, $actual); 
     }
 
     // mb_strlen 22
     public function test_200_230_mb_strlen_jp(): void
     {
-        $r = mb_strlen('あいう');
+        $actual = mb_strlen('あいう');
 
         // QUIZ
-        $a = 3;
+        $expected = 3;
         // /QUIZ
 
-        $this->assertSame($a, $r); // mb_strlenは日本語OK
+        $this->assertSame($expected, $actual); // mb_strlenは日本語OK
     }
 
     // mb_strwidth 2
     public function test_200_240_mb_strwidth(): void
     {
-        $r = mb_strwidth('あいうえお');
+        $actual = mb_strwidth('あいうえお');
 
-        // QUIZ
-        $a = 10;
-        // /QUIZ
+        $expected = 10;
 
-        $this->assertSame($a, $r); // mb_strwidth 全角文字は2でカウント。
+        $this->assertSame($expected, $actual); // mb_strwidth 全角文字は2でカウント。
     }
 
     // strtolower  43
     public function test_200_250_strtolower(): void
     {
-        $r = strtolower('Abc');
+        $actual = strtolower('Abc');
 
-        // QUIZ
-        $a = 'abc';
-        // /QUIZ
+        $expected = 'abc';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_260_strtolower_jp(): void
     {
-        $r = strtolower('Ａｂｃ');
+        $actual = strtolower('Ａｂｃ');
 
+        // strlenは日本語不可なので変更はかかりません。
         // QUIZ
-        $a = 'ａｂｃ';
+        $expected = 'Ａｂｃ';
         // /QUIZ
 
-        $this->assertNotSame($a, $r); // strtolower は日本語不可
+        $this->assertSame($expected, $actual); 
     }
 
     // mb_strtolower 7
     public function test_200_270_mb_strtolower_jp(): void
     {
-        $r = mb_strtolower('Ａｂｃ');
+        $actual = mb_strtolower('Ａｂｃ');
 
         // QUIZ
-        $a = 'ａｂｃ';
+        $expected = 'ａｂｃ';
         // /QUIZ
 
-        $this->assertSame($a, $r); // mb_strtolower は日本語OK
+        $this->assertSame($expected, $actual); // mb_strtolower は日本語OK
     }
 
     // strtoupper  27
     public function test_200_280_strtoupper(): void
     {
-        $r = strtoupper('Abc');
+        $actual = strtoupper('Abc');
 
         // QUIZ
-        $a = 'ABC';
+        $expected = 'ABC';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_290_strtoupper_jp(): void
     {
-        $r = strtoupper('Ａｂｃ');
+        $actual = strtoupper('Ａｂｃ');
 
+        // strtoupperも日本語は変更がかかりません。
         // QUIZ
-        $a = 'ＡＢＣ';
+        $expected = 'Ａｂｃ';
         // /QUIZ
 
-        $this->assertNotSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // mb_strtoupper 1
     public function test_200_300_mb_strtoupper_jp(): void
     {
-        $r = mb_strtoupper('Ａｂｃ');
+        $actual = mb_strtoupper('Ａｂｃ');
 
         // QUIZ
-        $a = 'ＡＢＣ';
+        $expected = 'ＡＢＣ';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
     
     // str_starts_with 114
     public function test_200_310_str_starts_with(): void
     {
-        $r = str_starts_with('This is a pen.', 'This is ');
+        $actual = str_starts_with('This is a pen.', 'This is ');
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_320_str_starts_with_jp(): void
     {
-        $r = str_starts_with('これは、ペンです。', 'これは、');
+        $actual = str_starts_with('これは、ペンです。', 'これは、');
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // str_ends_with 3
     public function test_200_330_str_ends_with(): void
     {
-        $r = str_ends_with('This is a pen.', ' pen.');
+        $actual = str_ends_with('This is a pen.', ' pen.');
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // str_contains  108
     public function test_200_340_str_contains(): void
     {
-        $r = str_contains('This is a pen.', ' is a ');
+        $actual = str_contains('This is a pen.', ' is a ');
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_350_str_contains_jp(): void
     {
-        $r = str_contains('これは、ペンです。', '、ペン');
+        $actual = str_contains('これは、ペンです。', '、ペン');
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // strpos  108
     public function test_200_360_strpos1(): void
     {
-        $r = strpos('abcde', 'a');
+        $actual = strpos('abcde', 'a');
 
         // QUIZ
-        $a = 0;
+        $expected = 0;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_370_strpos2(): void
     {
-        $r = strpos('abcde', 'bc');
+        $actual = strpos('abcde', 'bc');
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_380_strpos3(): void
     {
-        $r = strpos('abcde', 'de');
+        $actual = strpos('abcde', 'de');
 
         // QUIZ
-        $a = 3;
+        $expected = 3;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_390_strpos4_jp(): void
     {
-        $r = strpos('あいう', 'いう');
+        $actual = strpos('あいう', 'いう');
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertNotSame($a, $r); // 日本語には使えない
+        $this->assertNotSame($expected, $actual); // 日本語には使えない
     }
 
     // mb_strpos 1
     public function test_200_400_mb_strpos1_jp(): void
     {
-        $r = mb_strpos('あいう', 'いう');
+        $actual = mb_strpos('あいう', 'いう');
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertSame($a, $r); // mb_strpos は日本語OK
+        $this->assertSame($expected, $actual); // mb_strpos は日本語OK
     }
 
     // substr  106
     public function test_200_410_substr1(): void
     {
-        $r = substr('abcde', 1);
+        $actual = substr('abcde', 1);
 
         // QUIZ
-        $a = 'bcde';
+        $expected = 'bcde';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_420_substr2(): void
     {
-        $r = substr('abcde', 1, 2);
+        $actual = substr('abcde', 1, 2);
 
         // QUIZ
-        $a = 'bc';
+        $expected = 'bc';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_430_substr3(): void
     {
-        $r = substr('abcde', -1);
+        $actual = substr('abcde', -1);
 
         // QUIZ
-        $a = 'e';
+        $expected = 'e';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_440_substr4(): void
     {
-        $r = substr('abcde', -2);
+        $actual = substr('abcde', -2);
 
         // QUIZ
-        $a = 'de';
+        $expected = 'de';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_450_substr5(): void
     {
-        $r = substr('abcde', -2, 1);
+        $actual = substr('abcde', -2, 1);
 
         // QUIZ
-        $a = 'd';
+        $expected = 'd';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_460_substr6_jp(): void
     {
-        $r = substr('あいうえお', 1);
+        $actual = substr('あいうえお', 1);
 
         // QUIZ
-        $a = 'いうえお';
+        $expected = 'いうえお';
         // /QUIZ
 
-        $this->assertNotSame($a, $r); // substr 日本語には利用不可
+        $this->assertNotSame($expected, $actual); // substr 日本語には利用不可
     }
 
     // mb_substr 30
     public function test_200_470_mb_substr1_jp(): void
     {
-        $r = mb_substr('あいうえお', 1);
+        $actual = mb_substr('あいうえお', 1);
 
         // QUIZ
-        $a = 'いうえお';
+        $expected = 'いうえお';
         // /QUIZ
 
-        $this->assertSame($a, $r); // mb_substr 日本語OK
+        $this->assertSame($expected, $actual); // mb_substr 日本語OK
     }
 
     public function test_200_480_mb_substr2_jp(): void
     {
-        $r = mb_substr('あいうえお', 1, 2);
+        $actual = mb_substr('あいうえお', 1, 2);
 
         // QUIZ
-        $a = 'いう';
+        $expected = 'いう';
         // /QUIZ
 
-        $this->assertSame($a, $r); // mb_substr 日本語OK
+        $this->assertSame($expected, $actual); // mb_substr 日本語OK
     }
 
     // str_replace 381
     public function test_200_490_str_replace1(): void
     {
-        $r = str_replace('cd', 'CD', 'abcdef');
+        $actual = str_replace('cd', 'CD', 'abcdef');
 
         // QUIZ
-        $a = 'abCDef';
+        $expected = 'abCDef';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_500_str_replace2(): void
     {
-        $r = str_replace(['b', 'c'], ['B', 'C'], 'abcdef');
+        $actual = str_replace(['b', 'c'], ['B', 'C'], 'abcdef');
 
         // QUIZ
-        $a = 'aBCdef';
+        $expected = 'aBCdef';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_510_str_replace3_jp(): void
     {
-        $r = str_replace('い', 'イ', 'あいうえお');
+        $actual = str_replace('い', 'イ', 'あいうえお');
 
         // QUIZ
-        $a = 'あイうえお';
+        $expected = 'あイうえお';
         // /QUIZ
 
-        $this->assertSame($a, $r); // 日本語も利用可能
+        $this->assertSame($expected, $actual); // 日本語も利用可能
     }
 
     public function test_200_520_str_replace4_jp(): void
     {
-        $r = str_replace(['う', 'え'], ['ウ', 'エ'], 'あいうえお');
+        $actual = str_replace(['う', 'え'], ['ウ', 'エ'], 'あいうえお');
 
         // QUIZ
-        $a = 'あいウエお';
+        $expected = 'あいウエお';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_530_str_replace5_jp(): void
     {
         // 複数の文字列の変換を行った場合、変換結果に対して変換を重ねる。
         // 予期せぬ結果に注意。('1'=>'one', 'one'=>'two')
-        $r = str_replace(['1', 'one'], ['one', 'two'], '1');
+        $actual = str_replace(['1', 'one'], ['one', 'two'], '1');
 
         // QUIZ
-        $a = 'two';
+        $expected = 'two';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
     
     // preg_replace  56
     public function test_200_540_preg_replace1(): void
     {
-        $r = preg_replace('/\s+/', '-', 'This is  a  pen.'); //連続する空白を - にする
+        $actual = preg_replace('/\s+/', '-', 'This is  a  pen.'); //連続する空白を - にする
 
         // QUIZ
-        $a = 'This-is-a-pen.';
+        $expected = 'This-is-a-pen.';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_550_preg_replace2(): void
     {
-        $r = preg_replace('/[^0-9]/', '', '090-1234-5678'); //数字以外を削除
+        $actual = preg_replace('/[^0-9]/', '', '090-1234-5678'); //数字以外を削除
 
         // QUIZ
-        $a = '09012345678';
+        $expected = '09012345678';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // mb_ereg_replace 23
     public function test_200_560_mb_ereg_replace1(): void
     {
         // さまざまなハイフンらしきものを - に統一する
-        $r = mb_ereg_replace("[‐‑–—―−ｰ]", "-", '‐‑–—―−ｰ');
+        $actual = mb_ereg_replace("[‐‑–—―−ｰ]", "-", '‐‑–—―−ｰ');
 
         // QUIZ
-        $a = '-------';
+        $expected = '-------';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_570_mb_ereg_replace2(): void
     {
         // さまざまなクオーティーションらしきものを - に統一する
-        $r = mb_ereg_replace("[´’‘゜'“´”\"\❛]", "'", "´’‘゜'“´”\"❛");
+        $actual = mb_ereg_replace("[´’‘゜'“´”\"\❛]", "'", "´’‘゜'“´”\"❛");
 
         // QUIZ
-        $a = "''''''''''";
+        $expected = "''''''''''";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_580_mb_ereg_replace3(): void
     {
         // 全角カタカナのみを残したい
-        $r = mb_ereg_replace("[^ァ-ヶ]", "", "アイウエオかきくけこＡＢＣabc");
+        $actual = mb_ereg_replace("[^ァ-ヶ]", "", "アイウエオかきくけこＡＢＣabc");
 
         // QUIZ
-        $a = "アイウエオ";
+        $expected = "アイウエオ";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // preg_match  54
@@ -690,10 +710,10 @@ class U200StringFunctionsTest extends TestCase
         };
 
         // QUIZ
-        $a = ['26', '02', '28'];
+        $expected = ['26', '02', '28'];
         // /QUIZ
 
-        $this->assertSame($a, [$n1, $n2, $n3]);
+        $this->assertSame($expected, [$n1, $n2, $n3]);
     }    
 
     public function test_200_600_preg_match2(): void
@@ -702,59 +722,61 @@ class U200StringFunctionsTest extends TestCase
         $has_hiragana = preg_match('/[ぁ-ん]/u', 'イチニチイチゼン一日一善', $match);
 
         // QUIZ
-        $a = 0;
+        $expected = 0;
         // /QUIZ
 
-        $this->assertSame($a, $has_hiragana);
+        $this->assertSame($expected, $has_hiragana);
     }    
     
     // preg_match_all  2
     public function test_200_610_preg_match_all(): void
     {
-        $r = preg_match_all('/v=(\d+)/', 'v=1, v=20, v=300', $matches);
+        preg_match_all('/v=(\d+)/', 'v=1, v=20, v=300', $matches);
+        $actual = $matches;
 
         // QUIZ
-        $a = [["v=1", "v=20", "v=300"], ["1", "20", "300"]];
+        $expected = [["v=1", "v=20", "v=300"], ["1", "20", "300"]];
         // /QUIZ
 
-        $this->assertSame($a, $matches);
+        $this->assertSame($expected, $actual);
     }
 
     // mb_ereg 30
     public function test_200_620_mb_ereg(): void
     {
-        $r = mb_ereg('ｖ=(\d+)', 'ｖ=1, ｖ=20, ｖ=300', $matches);
+        mb_ereg('ｖ=(\d+)', 'ｖ=1, ｖ=20, ｖ=300', $matches);
+        $actual = $matches;
 
         // QUIZ
-        $a = ["ｖ=1", "1"];
+        $expected = ["ｖ=1", "1"];
         // /QUIZ
 
-        $this->assertSame($a, $matches);
+        $this->assertSame($expected, $actual);
     }
 
     // json_encode 48
     public function test_200_630_json_encode1(): void
     {
-        $v = [1,2,3];
-        $r = json_encode($v);
+        $v = [1, 2, 3];
+        $actual = json_encode($v);
 
         // QUIZ
-        $a = '[1,2,3]';
+        $expected = '[1,2,3]';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_640_json_encode2(): void
     {
         $v = ['a', 'b', 'c'];
-        $r = json_encode($v);
+        $actual = json_encode($v);
 
         // QUIZ
-        $a = '["a","b","c"]';
+        $expected = '["a","b","c"]';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_650_json_encode3(): void
@@ -764,13 +786,13 @@ class U200StringFunctionsTest extends TestCase
             'Osaka' =>  8837685, 
             'Aichi'  => 7542415,
         ];
-        $r = json_encode($v);
+        $actual = json_encode($v);
 
         // QUIZ
-        $a = '{"Tokyo":14047594,"Osaka":8837685,"Aichi":7542415}';
+        $expected = '{"Tokyo":14047594,"Osaka":8837685,"Aichi":7542415}';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_660_json_encode4(): void
@@ -780,13 +802,11 @@ class U200StringFunctionsTest extends TestCase
             '大阪府' =>  8837685, 
             '愛知県'  => 7542415,
         ];
-        $r = json_encode($v); // 漢字はエスケープされてしまう
+        $actual = json_encode($v); // 漢字はエスケープされてしまう
 
-        // QUIZ
-        $a = '{"\u6771\u4eac\u90fd":14047594,"\u5927\u962a\u5e9c":8837685,"\u611b\u77e5\u770c":7542415}';
-        // /QUIZ
+        $expected = '{"\u6771\u4eac\u90fd":14047594,"\u5927\u962a\u5e9c":8837685,"\u611b\u77e5\u770c":7542415}';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_670_json_encode5(): void
@@ -809,13 +829,11 @@ class U200StringFunctionsTest extends TestCase
             ],
         ];
 
-        $r = json_encode($v, JSON_UNESCAPED_UNICODE); // JSON_UNESCAPED_UNICODEをつけると漢字も表示可能に
+        $actual = json_encode($v, JSON_UNESCAPED_UNICODE); // JSON_UNESCAPED_UNICODEをつけると漢字も表示可能に
 
-        // QUIZ
-        $a = '{"東京都":{"2010":13159388,"2015":13515271,"2020":14047594},"大阪府":{"2010":8865245,"2015":8839469,"2020":8837685},"愛知県":{"2010":7410719,"2015":7483128,"2020":7542415}}';
-        // /QUIZ
+        $expected = '{"東京都":{"2010":13159388,"2015":13515271,"2020":14047594},"大阪府":{"2010":8865245,"2015":8839469,"2020":8837685},"愛知県":{"2010":7410719,"2015":7483128,"2020":7542415}}';
         
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_680_json_encode6(): void
@@ -838,7 +856,7 @@ class U200StringFunctionsTest extends TestCase
             ],
         ];
 
-        $r = json_encode($v, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); // JSON_PRETTY_PRINTをつけると整形される
+        $actual = json_encode($v, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); // JSON_PRETTY_PRINTをつけると整形される
 
         $expected = '{
     "東京都": {
@@ -858,7 +876,7 @@ class U200StringFunctionsTest extends TestCase
     }
 }';
 
-        $this->assertSame($expected, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // json_decode 45
@@ -884,148 +902,157 @@ class U200StringFunctionsTest extends TestCase
             ],
         ];
 
-        $r = json_decode($v, true); // 末尾にtrueをつけると配列で帰る
-        $this->assertSame($expected, $r);
+        $actual = json_decode($v, true); // 末尾にtrueをつけると配列で帰る
+        $this->assertSame($expected, $actual);
     }    
 
     // rtrim 16
     public function test_200_700_rtrim(): void
     {
-        $r = rtrim("\n This is trimmed text.  \n");
+        $actual = rtrim("\n This is trimmed text.  \n");
 
         // QUIZ
-        $a = "\n This is trimmed text.";
+        $expected = "\n This is trimmed text.";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // strip_tags  5
     public function test_200_710_strip_tags(): void
     {
-        $r = strip_tags('<p>お問い合わせは<b><a href="#">こちら</a></b></p>');
+        $actual = strip_tags('<p>お問い合わせは<b><a href="#">こちら</a></b></p>');
 
         // QUIZ
-        $a = "お問い合わせはこちら";
+        $expected = "お問い合わせはこちら";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // preg_split  3
     public function test_200_720_preg_split1(): void
     {
         // １文字ごとに切る
-        $r = preg_split("//u", "電話番号は 090-1234-5678 です。", -1, PREG_SPLIT_NO_EMPTY);
+        $actual = preg_split("//u", "電話番号は 090-1234-5678 です。", -1, PREG_SPLIT_NO_EMPTY);
 
         // QUIZ
-        $a = ['電','話','番','号','は',' ','0','9','0','-','1','2','3','4','-','5','6','7','8',' ','で','す','。'];
+        $expected = ['電','話','番','号','は',' ','0','9','0','-','1','2','3','4','-','5','6','7','8',' ','で','す','。'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_730_preg_split2(): void
     {
         // 母音で切る
-        $r = preg_split("/[aiueo]+/", "korewa nihongo desu");
+        $actual = preg_split("/[aiueo]+/", "korewa nihongo desu");
 
         // QUIZ
-        $a = ['k', 'r','w',' n','h','ng',' d','s',''];
+        $expected = ['k', 'r','w',' n','h','ng',' d','s',''];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // str_repeat  2
     public function test_200_740_str_repeat(): void
     {
-        $r = str_repeat('*', 5);
+        $actual = str_repeat('*', 5);
 
         // QUIZ
-        $a = '*****';
+        $expected = '*****';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // strtr 2
     public function test_200_750_strtr(): void
     {
-        $r = strtr('abc', 'c', 'C');
+        $actual = strtr('abc', 'c', 'C');
 
         // QUIZ
-        $a = 'abC';
+        $expected = 'abC';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_200_760_strtr_jp(): void
     {
-        $r = strtr('あいう', 'う', 'ウ');
+        $actual = strtr('あいう', 'う', 'ウ');
+        $expected = 'もやウ';
 
+        $this->assertSame($expected, $actual); // 日本語には利用不可!!!
+    }
+    
+    public function test_200_760_strtr_recursive(): void
+    {
+        $actual = strtr('one', ['one' => 'two', 'two' => 'three']);
+
+        // 一度置換した結果は、再び置換されない
         // QUIZ
-        $a = 'あいウ';
+        $expected = 'two';
         // /QUIZ
 
-        $this->assertNotSame($a, $r); // 日本語には利用不可
+        $this->assertSame($expected, $actual); // 日本語には利用不可
     }
     
     // sscanf  4
     public function test_200_770_sscanf(): void
     {
-        $r = sscanf('time=12:34.5', "time=%d:%d.%d");
+        $actual = sscanf('time=12:34.5', "time=%d:%d.%d");
 
         // QUIZ
-        $a = [12, 34, 5];
+        $expected = [12, 34, 5];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // number_format 7
     public function test_200_780_number_format(): void
     {
-        $r = number_format(1234567890);
+        $actual = number_format(1234567890);
 
         // QUIZ
-        $a = '1,234,567,890';
+        $expected = '1,234,567,890';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // nl2br 30
     public function test_200_790_nl2br(): void
     {
-        $r = nl2br("これは\n改行付きの\nテキスト\nです");
+        $actual = nl2br("これは\n改行付きの\nテキスト\nです");
 
         // QUIZ
-        $a = "これは<br />\n改行付きの<br />\nテキスト<br />\nです";
+        $expected = "これは<br />\n改行付きの<br />\nテキスト<br />\nです";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // md5 7
     public function test_200_800_md5(): void
     {
         $v = "secret";
-        $r = md5($v);
+        $actual = md5($v);
         $encrypted = "5ebe2294ecd0e0f08eab7690d2a6ee69";
 
-        $this->assertSame($encrypted, $r);
+        $this->assertSame($encrypted, $actual);
     }
 
     // sha1  5
     public function test_200_810_sha1(): void
     {
         $v = "secret";
-        $r = sha1($v);
+        $actual = sha1($v);
         $encrypted = "e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4";
 
-        $this->assertSame($encrypted, $r);
+        $this->assertSame($encrypted, $actual);
     }
 
 }

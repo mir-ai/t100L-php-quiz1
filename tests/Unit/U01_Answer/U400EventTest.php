@@ -12,7 +12,14 @@ class U400EventTest extends TestCase
         $this->assertTrue(true);
     }
 
+    // 実務課題 : 浜松市のイベント情報の検索・抽出
+
     // 浜松市で一番イベントが開催されている場所を抽出する
+
+    // tests/Unit/data/event.tsv (または tests/Unit/data/event_small.tsv)
+    // を読み込んで、一番イベントが開催されている場所名称を上位３件を取得してみよう。
+
+    // 結果はこれになります。
     private function getOutput(): array
     {
         return [
@@ -23,8 +30,6 @@ class U400EventTest extends TestCase
     }
 
     // じぶんでやってみよう
-    // tests/Unit/data/event.tsv (または tests/Unit/data/event_small.tsv)
-    // を読み込んで、一番イベントが開催されている場所名称を上位３件を取得します。
     public function test_400_020_popular_places(): void
     {
         // 元データを読み込む
@@ -33,7 +38,7 @@ class U400EventTest extends TestCase
         $is_first = true;
         $col_names = [];
         $all_items = [];
-        $r = null;
+        $actual = null;
 
         // QUIZ
 
@@ -73,15 +78,15 @@ class U400EventTest extends TestCase
         arsort($count_by_place_names);
 
         // 上位３件を取得
-        $r = array_slice($count_by_place_names, 0, 3);
+        $v = array_slice($count_by_place_names, 0, 3);
 
         // キー（施設名称）のみにする
-        $r = array_keys($r);
+        $actual = array_keys($v);
 
         // /QUIZ
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 上級問題1

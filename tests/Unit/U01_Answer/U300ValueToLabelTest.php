@@ -12,6 +12,8 @@ class U300ValueToLabelTest extends TestCase
         $this->assertTrue(true);
     }
 
+    // 値をラベル（名称）に変換するさまざまなやり方
+
     // 値をラベルに変える 1 - ifを使う
     public function test_300_020_value_to_label_if(): void
     {
@@ -23,22 +25,21 @@ class U300ValueToLabelTest extends TestCase
 
         $v = 'apple';
 
-        $r = '不明';
+        $actual = '不明';
 
-        // if を使って 'apple' に該当する名前を $r に入れて下さい。
-        // QUIZ
         if ($v == 'apple') {
-            $r = 'りんご';
+            $actual = 'りんご';
         } else if ($v == 'orange') {
-            $r = 'オレンジ';
+            $actual = 'オレンジ';
         } else if ($v == 'grape') {
-            $r = 'ぶどう';
+            $actual = 'ぶどう';
         }
-        // /QUIZ
         
-        $a = 'りんご';
+        // QUIZ
+        $expected = 'りんご';
+        // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 値をラベルに変える 2 - matchを使う
@@ -50,21 +51,20 @@ class U300ValueToLabelTest extends TestCase
             'grape' => 'ぶどう',
         */
 
-        $v = 'apple';
+        $v = 'orange';
 
-        // match を使って 'apple' に該当する名前を $r に入れて下さい。
-        // QUIZ
-        $r = match($v) {
+        $actual = match($v) {
             'apple' => 'りんご',
             'orange' => 'オレンジ',
             'grape' => 'ぶどう',
             default => '不明',
         };
+
+        // QUIZ
+        $expected = 'オレンジ';
         // /QUIZ
 
-        $a = 'りんご';
-
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 値をラベルに変える 3 - 連想配列を使う
@@ -76,39 +76,39 @@ class U300ValueToLabelTest extends TestCase
             'grape' => 'ぶどう',
         */
 
-        $v = 'apple';
+        $v = 'grape';
 
-        // 連想配列 を使って 'apple' に該当する名前を $r に入れて下さい。
+        // 連想配列 を使う
         $fruits = [
             'apple' => 'りんご',
             'orange' => 'オレンジ',
             'grape' => 'ぶどう',
         ];
 
+        $actual = $fruits[$v] ?? '不明';
+
         // QUIZ
-        $r = $fruits[$v] ?? '不明';
+        $expected = 'ぶどう';
         // /QUIZ
 
-        $a = 'りんご';
-
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 値をラベルに変える 4 - Enumを使う
     public function test_300_050_value_to_label_enum(): void
     {
 
-        $v = 'apple';
+        $v = 'pineapple';
 
-        // Enum を使って 'apple' に該当する名前を $r に入れて下さい。
-        // QUIZ
+        // 下記に定義されている Enum::Fruits を使って 'apple' に該当する名前を $r に入れて下さい。
         $e = Fruit::tryFrom($v);
-        $r = $e->label();
+        $actual = $e->label();
+
+        // QUIZ
+        $expected = 'パイナップル';
         // /QUIZ
 
-        $a = 'りんご';
-
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 
@@ -116,7 +116,8 @@ Enum Fruit: string
 {
     case Apple  = 'apple';
     case Orange = 'orange';
-    case Grape  = 'Grape';
+    case Grape  = 'grape';
+    case Pineapple  = 'pineapple';
 
     // ラベルを返す
     public function label(): string
@@ -125,8 +126,8 @@ Enum Fruit: string
             Fruit::Apple   => 'りんご',
             Fruit::Orange  => 'オレンジ',
             Fruit::Grape   => 'ぶどう',
+            Fruit::Pineapple  => 'パイナップル',
             default        => '不明',
         };
     }                
 }        
-        

@@ -13,7 +13,9 @@ class U340ParseXmlDataTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // クイズ： getInput() のテキストから、 getReportTable() の配列を作成して下さい。
+    // 実務課題 : 気象庁のXMLデータから市区町村別の警報情報を抽出する
+
+    // クイズ： getInput() のテキストから、 getOutput() の配列を作成して下さい。
     // これが入力データの配列
     private function getInput(): string
     {
@@ -57,7 +59,7 @@ class U340ParseXmlDataTest extends TestCase
         ];
     }
 
-    // 要素分解１: XMLデータを整形する
+    // ヒント: 要素分解１: XMLデータを整形する
     public function test_340_02_format_xml()
     {
         // 元データを取得する
@@ -76,7 +78,7 @@ class U340ParseXmlDataTest extends TestCase
         $dom->formatOutput = true;
         $xml_formatted = $dom->saveXML();
 
-        $a = <<<END
+        $expected = <<<END
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://xml.kishou.go.jp/jmaxml1/" xmlns:jmx="http://xml.kishou.go.jp/jmaxml1/" xmlns:jmx_add="http://xml.kishou.go.jp/jmaxml1/addition1/">
   <Control>
@@ -131,25 +133,25 @@ class U340ParseXmlDataTest extends TestCase
 
 END;
 
-        $this->assertSame($a, $xml_formatted);
+        $this->assertSame($expected, $xml_formatted);
     }
 
-    // 要素分解２: 文字列中から、タグで囲まれた範囲を抽出する
+    // ヒント: 要素分解２: 文字列中から、タグで囲まれた範囲を抽出する
     public function test_340_03_extract_content()
     {
         $v = '<ReportDateTime>2016-07-15T16:03:00+09:00</ReportDateTime>';
 
-        $r = '';
+        $actual = '';
         if (preg_match('/<ReportDateTime>([\S\s]+?)<\/ReportDateTime>/', $v, $matches)) {
-            $r = $matches[1];
+            $actual = $matches[1];
         }
 
-        $a = '2016-07-15T16:03:00+09:00';
+        $expected = '2016-07-15T16:03:00+09:00';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解４: XML構造の中から、意味を読み取る
+    // ヒント: 要素分解3: XML構造の中から、意味を読み取る
     public function test_340_04_read_from_struct()
     {
         $xml = <<<END
@@ -231,7 +233,7 @@ END;
             }
         }
 
-        $a = [
+        $expected = [
             [
                 "city_name" => "みらい市",
                 "warnings" => [
@@ -253,16 +255,16 @@ END;
             ]
         ];
 
-        $this->assertSame($a, $items);
+        $this->assertSame($expected, $items);
     }
 
-    // じぶんでやってみよう： レポートデータの作成。完成レポートを $r にいれる。
-    // getOutput と同じデータになるように。
+    // やってみよう
+    // getInput のデータを加工して、getOutput を作成して下さい。。
     public function test_340_format_xml(): void
     {
         // 元データを取得する
         $xml_raw = $this->getInput();
-        $r = [];
+        $actual = [];
 
         // QUIZ
 
@@ -356,15 +358,15 @@ END;
             }
         }
 
-        $r = [
+        $actual = [
             'report_date_time' => $report_date,
             'items' => $items,
         ];
 
         // /QUIZ
 
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }        

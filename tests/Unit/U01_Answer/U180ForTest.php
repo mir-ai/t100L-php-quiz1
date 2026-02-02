@@ -8,252 +8,260 @@ class U180ForTest extends TestCase
 {
     public function test_180_010(): void
     {
-        $r = 1;
-        $r++;
+        $actual = 1;
+        $actual++;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_020(): void
     {
-        $r = 2;
-        $r++;
-        $r++;
+        $actual = 2;
+        $actual++;
+        $actual++;
 
         // QUIZ
-        $a = 4;
+        $expected = 4;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // for 
+    // https://www.php.net/manual/ja/control-structures.for.php
     public function test_180_030(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i < 3; $i++) {
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 1, 2];
+        $expected = [0, 1, 2];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_040(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 3; $i++) {
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 1, 2, 3];
+        $expected = [0, 1, 2, 3];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_050(): void
     {
-        $r = 1;
-        $r += 2;
+        $actual = 1;
+        $actual += 2;
 
         // QUIZ
-        $a = 3;
+        $expected = 3;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_060(): void
     {
-        $r = 1;
-        $r += 2;
-        $r += 2;
+        $actual = 1;
+        $actual += 2;
+        $actual += 2;
 
         // QUIZ
-        $a = 5;
+        $expected = 5;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_070(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i < 6; $i += 2) {
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 2, 4];
+        $expected = [0, 2, 4];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_080(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 6; $i += 2) {
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 2, 4, 6];
+        $expected = [0, 2, 4, 6];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // while
+    // https://www.php.net/manual/ja/control-structures.while.php
     public function test_180_090(): void
     {
-        $r = [];
+        $actual = [];
         $i = 0;
 
         while ($i < 3) {
-            $r[] = $i;
+            $actual[] = $i;
             $i++;
         }
 
         // QUIZ
-        $a = [0, 1, 2];
+        $expected = [0, 1, 2];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_100(): void
     {
-        $r = [];
+        $actual = [];
         $i = 0;
 
         while ($i < 6) {
-            $r[] = $i;
+            $actual[] = $i;
             $i += 2;
         }
 
         // QUIZ
-        $a = [0, 2, 4];
+        $expected = [0, 2, 4];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_110(): void
     {
-        $r = [];
+        $actual = [];
         $i = 0;
 
         while ($i <= 6) {
-            $r[] = $i;
+            $actual[] = $i;
             $i += 2;
         }
 
         // QUIZ
-        $a = [0, 2, 4, 6];
+        $expected = [0, 2, 4, 6];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_120(): void
     {
-        $r = [];
+        $actual = [];
         $i = 1;
 
         while ($i <= 10) {
-            $r[] = $i;
+            $actual[] = $i;
             $i += $i;
         }
 
         // QUIZ
-        $a = [1, 2, 4, 8];
+        $expected = [1, 2, 4, 8];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // continue
+    // https://www.php.net/manual/ja/control-structures.continue.php
     public function test_180_130(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 5; $i++) {
             if ($i == 3) {
                 continue;
             }
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 1, 2, 4, 5];
+        $expected = [0, 1, 2, 4, 5];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_140(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 5; $i++) {
             if ($i <  3) {
                 continue;
             }
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [3, 4, 5];
+        $expected = [3, 4, 5];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // break
+    // https://www.php.net/manual/ja/control-structures.break.php
     public function test_180_150(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 5; $i++) {
             if ($i == 4) {
                 break;
             }
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 1, 2, 3];
+        $expected = [0, 1, 2, 3];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_180_160(): void
     {
-        $r = [];
+        $actual = [];
 
         for ($i = 0; $i <= 5; $i++) {
             if ($i > 3) {
                 break;
             }
-            $r[] = $i;
+            $actual[] = $i;
         }
 
         // QUIZ
-        $a = [0, 1, 2, 3];
+        $expected = [0, 1, 2, 3];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 

@@ -6,129 +6,131 @@ use PHPUnit\Framework\TestCase;
 
 class U130MathTest extends TestCase
 {
+    // 算術演算子
+    // https://www.php.net/manual/ja/language.operators.arithmetic.php
     public function test_130_010(): void
     {
-        $r = 1 + 1;
+        $actual = 1 + 1;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_020(): void
     {
-        $r = 1 - 1;
+        $actual = 1 - 1;
 
         // QUIZ
-        $a = 0;
+        $expected = 0;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_030(): void
     {
-        $r = 1 * 2;
+        $actual = 1 * 2;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_040(): void
     {
-        $r = 4 / 2;
+        $actual = 4 / 2;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_050(): void
     {
-        $r = 4 % 3;
+        $actual = 4 % 3;
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_060(): void
     {
-        $r = 5 % 3;
+        $actual = 5 % 3;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_070(): void
     {
-        $r = 6 % 3;
+        $actual = 6 % 3;
 
         // QUIZ
-        $a = 0;
+        $expected = 0;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_130_080(): void
     {
-        $r = 1;
-        $r++;
+        $actual = 1;
+        $actual++;
 
         // QUIZ
-        $a = 2;
+        $expected = 2;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }    
 
     public function test_130_090(): void
     {
-        $r = 2;
-        $r--;
+        $actual = 2;
+        $actual--;
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     } 
     
     public function test_130_100(): void
     {
-        $r = 1;
-        $r += 2;
+        $actual = 1;
+        $actual += 2;
 
         // QUIZ
-        $a = 3;
+        $expected = 3;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }    
 
     public function test_130_110(): void
     {
-        $r = 3;
-        $r -= 2;
+        $actual = 3;
+        $actual -= 2;
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }    
 
     

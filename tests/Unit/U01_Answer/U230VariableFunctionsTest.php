@@ -4,6 +4,8 @@ namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
+// 変数操作関数
+// https://www.php.net/manual/ja/book.var.php
 class U230VariableFunctionsTest extends TestCase
 {
     // 
@@ -20,7 +22,6 @@ class U230VariableFunctionsTest extends TestCase
         $is_empty3 = empty([]);
         $is_empty4 = empty(null);
         $is_empty5 = empty($undefined_variable);
-
 
         $v = ['x' => 1];
         $is_empty6 = empty($v['y']);
@@ -164,26 +165,26 @@ class U230VariableFunctionsTest extends TestCase
 
     public function test_230_140_to_string(): void
     {
-        $r = 123;
+        $v = 123;
 
         // QUIZ
-        $a = strval($r);
+        $expected = strval($v);
         // /QUIZ
 
-        $this->assertTrue(is_string($a));
-        $this->assertSame('123', $a);
+        $this->assertTrue(is_string($expected));
+        $this->assertSame('123', $expected);
     }
 
     public function test_230_150_to_int(): void
     {
-        $r = "123";
+        $v = "123";
 
         // QUIZ
-        $a = intval($r);
+        $expected = intval($v);
         // /QUIZ
 
-        $this->assertTrue(is_numeric($a));
-        $this->assertSame(123, $a);
+        $this->assertTrue(is_numeric($expected));
+        $this->assertSame(123, $expected);
     }
 
 }

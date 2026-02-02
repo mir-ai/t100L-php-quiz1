@@ -22,40 +22,40 @@ class U250Enum1Test extends TestCase
     
     public function test_250_020_enum1(): void
     {
-        $r = Weather::Hare->value;
-        $a = 1;
+        $actual = Weather::Hare->value;
+        $expected = 1;
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_250_020_enum2(): void
     {
-        $r = Weather::TryFrom(1);
-        $a = Weather::Hare;
+        $actual = Weather::TryFrom(1);
+        $expected = Weather::Hare;
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_250_020_enum3(): void
     {
-        $r = Weather::Hare->value;
+        $actual = Weather::Hare->value;
 
         // QUIZ
-        $a = 1;
+        $expected = 1;
         // /QUIZ        
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_250_020_enum4(): void
     {
-        $r = Weather::TryFrom(1);
+        $actual = Weather::TryFrom(1);
 
         // QUIZ
-        $a = Weather::Hare;
+        $expected = Weather::Hare;
         // /QUIZ        
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 

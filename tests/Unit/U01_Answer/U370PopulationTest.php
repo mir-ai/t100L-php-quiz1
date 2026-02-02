@@ -12,8 +12,11 @@ class U370PopulationTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // 浜松市で一番高齢化(65歳以上の人口の占める割合)の高い町名
-    // 
+    // 実務課題 : 浜松市の高齢化上位の地区の抽出
+
+    // tests/Unit/data/populations_utf8.csv または tests/Unit/data/populations_small_utf8.csv を読んで、
+    // 浜松市で一番高齢化(65歳以上の人口の占める割合)の高い町名の上位３件を取得して下さい。
+    // 以下のデータを作りたい。
     private function getOutput(): array
     {
         return [
@@ -23,7 +26,7 @@ class U370PopulationTest extends TestCase
         ];
     }
 
-    // 要素分解1 ファイルから各項目を読んで取得する
+    // ヒント 要素分解1 ファイルから各項目を読んで取得する
     public function test_370_read_csv(): void
     {
         $filename = 'tests/Unit/data/populations_small_utf8.csv';
@@ -35,7 +38,7 @@ class U370PopulationTest extends TestCase
         // 要素分解 ファイルから各項目を読んで取得する
         $lines = explode("\n", $contents);
         $col_names = [];
-        $r = []; // 2次元配列。
+        $actual = []; // 2次元配列。
         foreach ($lines as $no => $line) {
             if (! $line) {
                 continue;
@@ -55,7 +58,7 @@ class U370PopulationTest extends TestCase
             $r[] = $item;
         }
 
-        $a = [
+        $expected = [
             [
                 "NO" => "53446",
                 "都道府県コード又は市区町村コード" => "221309",
@@ -160,10 +163,10 @@ class U370PopulationTest extends TestCase
             ]
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解2
+    // ヒント 要素分解2
     // データを中間配列1に入れる
     // $data['市区町村名'] = [
     //   'total_count' => 100,
@@ -208,7 +211,7 @@ class U370PopulationTest extends TestCase
             ],            
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($v as $item) {
             $town_name = "{$item['市区町村名']}{$item['区']}{$item['地区']}{$item['大字']}";
 
@@ -221,17 +224,17 @@ class U370PopulationTest extends TestCase
             }
         }
 
-        $a = [
+        $expected = [
             "浜松市天竜区春野地区春野町大時" => [
                 "total_count" => 100,
                 "elder_count" => 70
             ]
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解3 中間配列１から各町の人数と高齢者数を読んで、高齢者率を計算する
+    // ヒント 要素分解3 中間配列１から各町の人数と高齢者数を読んで、高齢者率を計算する
     public function test_370_040_test(): void
     {
         $v = [
@@ -241,7 +244,7 @@ class U370PopulationTest extends TestCase
             ]
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($v as $city_name => $count_item) {
             $total_count = $count_item['total_count'];
             $elder_count = $count_item['elder_count'];
@@ -252,15 +255,15 @@ class U370PopulationTest extends TestCase
             $r[$city_name] = $elder_rate;
         }
 
-        $a = [
+        $expected = [
             '浜松市天竜区春野地区春野町大時' => 0.7
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解4 高齢化率の多い順に並べ替える
-    // 要素分解5 上位3件を取得
+    // ヒント 要素分解4 高齢化率の多い順に並べ替える
+    // ヒント 要素分解5 上位3件を取得
     public function test_370_050_orders()
     {
         $v = [
@@ -273,29 +276,28 @@ class U370PopulationTest extends TestCase
         arsort($v);
 
         // 上位2件を取得
-        $r = array_slice($v, 0, 2);
+        $actual = array_slice($v, 0, 2);
 
-        $a = [
+        $expected = [
             'こだい市'  => 80.0,
             'かこ市'  => 70.0,
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // じぶんでやってみよう
-    // ファイルを読んで
     public function test_370_060_highest_elder_town(): void
     {
         // 元データを読み込む
-        //$filename = 'tests/Unit/data/populations_utf8.csv';
-        $filename = 'tests/Unit/data/populations_small_utf8.csv';
+        $filename = 'tests/Unit/data/populations_utf8.csv'; // ←これはファイルサイズが大きいので、_small でもよい。
+        //$filename = 'tests/Unit/data/populations_small_utf8.csv';
         $contents = file_get_contents($filename);
         if (! $contents) {
             echo "{$filename} を読み込めません。";
         }
 
-        $r = [];
+        $actual = [];
 
         // QUIZ
 
@@ -359,38 +361,41 @@ class U370PopulationTest extends TestCase
         // 要素分解5 上位3件を取得
         $elsest_towns = array_slice($elder_rates_by_town, 0, 3);
 
-        $r = array_keys($elsest_towns);
+        $actual = array_keys($elsest_towns);
 
         // /QUIZ
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
 
+    // さらに以下の課題にチャレンジしてみよう
+    // これができると、実際の業務に携わることができるようになります。
+
     // 上級課題１
-    // 高齢化率の低い順に町を３件出力する
+    // 高齢化率の低い順に町を３件出力してみよう
     public function test_370_070_youngest_town(): void    
     {
         $this->assertTrue(true);
     }
 
     // 上級課題２
-    // ０歳児の多い順に町を３件出力する
+    // ０歳児の多い順に町を３件出力してみよう
     public function test_370_080_happy_newborn_town(): void    
     {
         $this->assertTrue(true);
     }
 
     // 上級課題3
-    // 町ごとの平均年齢を算出する
+    // 町ごとの平均年齢を算出してみよう
     public function test_380_090_average_age_by_town(): void    
     {
         $this->assertTrue(true);
     }
 
     // 上級課題4
-    // 男性と女性の平均年齢差を算出する
+    // 男性と女性の平均年齢差を算出してみよう
     public function test_390_100_average_age_by_gender(): void
     {
         $this->assertTrue(true);

@@ -12,7 +12,9 @@ class U320HourlyReportTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // クイズ： getInput() のデータから、 getReportTable() の配列を作成して下さい。
+    // 実務課題 : 行動ログの集計
+
+    // クイズ： getInput() のデータから、 getOutput() の配列を作成して下さい。
     // これが入力データの配列
     private function getInput(): array
     {
@@ -81,7 +83,7 @@ class U320HourlyReportTest extends TestCase
         ];
     }
 
-    // 要素分解1: 不正なデータを弾く
+    // ヒント： 要素分解1: 不正なデータを弾きつつ読み込む
     public function test_320_020_skip_invalid_data(): void
     {
         $log_items = [
@@ -131,17 +133,17 @@ class U320HourlyReportTest extends TestCase
             $valid_items[] = $log_item;
         }
 
-        $a = [
+        $expected = [
             [
                 'time' => '21:36',
                 'action' => 'SLEEP',
             ],          
         ];
 
-        $this->assertSame($a, $valid_items);
+        $this->assertSame($expected, $valid_items);
     }
 
-    // 要素分解2: 下書きデータにデータを足していく
+    // ヒント： 要素分解2: 下書きデータにデータを足していく
     public function test_320_030_fill_data(): void
     {
         // 下書きデータは、時間(int)をキーとし、それぞれの時間に連想配列(action => 件数)を持った配列とする。
@@ -167,16 +169,16 @@ class U320HourlyReportTest extends TestCase
             $draft_reports[$hour][$action] = $v + 1;
         }
 
-        $a = [
+        $expected = [
              6 => ['KISYO' => 1],
              9 => ['SYOKUJI' => 3],
             21 => ['SLEEP' => 1],
         ];
 
-        $this->assertSame($a, $draft_reports);
+        $this->assertSame($expected, $draft_reports);
     }
 
-    // 要素分解3: 下書きデータからレポートデータを作る
+    // ヒント： 要素分解3: 下書きデータからレポートデータを作る
     public function test_320_040_fill_data(): void
     {
         $draft_reports = [
@@ -196,7 +198,7 @@ class U320HourlyReportTest extends TestCase
             ];
         }
 
-        $a = [
+        $expected = [
             ["時間","起床","食事","就寝"],
             [" 0時",0,0,0],
             [" 1時",0,0,0],
@@ -224,16 +226,17 @@ class U320HourlyReportTest extends TestCase
             ["23時",0,0,0]
         ];
 
-        $this->assertSame($a, $final_reports);
+        $this->assertSame($expected, $final_reports);
     }
 
-    // じぶんでやってみよう： レポートデータの作成。完成レポートを $r にいれる。
-    // getOutput と同じデータになるように。
+    // やってみよう
+    //  レポートデータの作成。完成レポートを $r にいれる。
+    // getInput() のデータを加工して、getOutput と同じデータになるように。
     public function test_320_make_report(): void
     {
         // 元データを取得する
         $action_logs = $this->getInput();
-        $r = [];
+        $actual = [];
 
         // QUIZ
         $draft_reports = [];
@@ -295,11 +298,11 @@ class U320HourlyReportTest extends TestCase
             ];
         }
 
-        $r = $final_reports;
+        $actual = $final_reports;
         // /QUIZ
 
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }        

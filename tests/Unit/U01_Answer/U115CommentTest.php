@@ -6,10 +6,12 @@ use PHPUnit\Framework\TestCase;
 
 class U115CommentTest extends TestCase
 {
-    // 
+    // コメント
+    // https://www.php.net/manual/ja/language.basic-syntax.comments.php
     public function test_115_010_comment(): void
     {
-        $r = 12345;
+        $expected = 1;
+        $actual = 0;
 
         // VSCode で複数の行をまとめてコメントを外すには、
         // 複数行を選択した後、 Command 長押し → / を押します。
@@ -17,10 +19,10 @@ class U115CommentTest extends TestCase
         // コメントのある行に再び実行すると、 コメントが外れます。
 
         // if (1) {
-        //   $a = 1;
+        //   $actual = 1;
         // }
 
-        $this->assertTrue(true);
+        $this->assertSame($expected, $actual);
     }
 
 }

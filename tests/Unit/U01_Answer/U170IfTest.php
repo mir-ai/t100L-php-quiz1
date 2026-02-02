@@ -8,17 +8,17 @@ class U170IfTest extends TestCase
 {
     public function test_170_010(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
         $r[] = 'b';
         $r[] = 'c';
 
-        $this->assertSame(['a', 'b', 'c'], $r);
+        $this->assertSame(['a', 'b', 'c'], $actual);
     }
 
     public function test_170_020(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         if (1 == 1) {
@@ -26,15 +26,17 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $a = ['a', 'b'];
+        $expected = ['a', 'b'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // if
+    // https://www.php.net/manual/ja/control-structures.if.php
     public function test_170_030(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         if (1 != 1) {
@@ -42,15 +44,15 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $a = ['a'];
+        $expected = ['a'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_040(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         if (1 == 1) {
@@ -60,15 +62,15 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $a = ['a', 'b'];
+        $expected = ['a', 'b'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_050(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         if (1 != 1) {
@@ -78,15 +80,15 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $a = ['a', 'c'];
+        $expected = ['a', 'c'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_060(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         if (2 == 1) {
@@ -98,15 +100,17 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $a = ['a', 'c'];
+        $expected = ['a', 'c'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
+    // match
+    // https://www.php.net/manual/ja/control-structures.match.php
     public function test_170_070(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         $r[] = match(1) {
@@ -117,15 +121,15 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $a = ['a', 'b'];
+        $expected = ['a', 'b'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_080(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         $r[] = match(3) {
@@ -136,15 +140,15 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $a = ['a', 'd'];
+        $expected = ['a', 'd'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_090(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         $r[] = match(5) {
@@ -155,17 +159,17 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $a = ['a', 'e'];
+        $expected = ['a', 'e'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_170_100(): void
     {
         $i  = 2;
 
-        $r = [];
+        $actual = [];
         $r[] = 'a';
 
         $r[] = match($i) {
@@ -176,10 +180,10 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $a = ['a', 'c'];
+        $expected = ['a', 'c'];
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 

@@ -12,6 +12,28 @@ class U380RinyaKasaiTest extends TestCase
         $this->assertTrue(true);
     }
 
+    // 実務課題 : 伊勢原市の林野火災注意報、林野火災警報の判定
+
+    // getInput のデータを読んで、getOutput のデータを作成します。
+
+    // ルール
+    // 
+    // 
+    //
+    // 2026/1/4 - 2026/1/31 の毎日の林野火災注意報、警報を判定する
+    //
+    // 【注意報】
+    // ①前日までの3日間の合計降水量が1ｍｍ以下、かつ、前30日間の合計降水量が30ｍｍ以下である
+    // ②前日までの3日間の合計降水量が1ｍｍ以下、かつ、気象庁が乾燥注意報を発表している
+    // 　※毎朝5時の気象情報により、①②のうち、いずれかが観測された場合
+    // 
+    // 【警報】
+    // ①前日までの3日間の合計降水量が1ｍｍ以下、かつ、前30日間の合計降水量が30ｍｍ以下である
+    // ②前日までの3日間の合計降水量が1ｍｍ以下、かつ、気象庁が乾燥注意報を発表している
+    // ③毎朝5時の気象情報により、上記①②のいずれかの気象条件に加え、強風注意報が発表された場合
+
+    // 日付計算には、良いライブラリ(Carbon)があるのだが、まだ習っていないので、ここではまだ使わず単純計算にとどめておく。
+
     private function getInput(): array
     {
         return [
@@ -188,12 +210,12 @@ class U380RinyaKasaiTest extends TestCase
 
         }
 
-        $r = $warnings;
+        $actual = $warnings;
 
         // /QUIZ
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
 }        

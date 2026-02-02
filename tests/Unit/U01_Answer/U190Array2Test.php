@@ -4,29 +4,34 @@ namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
+// 配列について（２）連想配列編
+// https://zenn.dev/phpbeginners/articles/b83c65267d03bd
+
+// 配列について（３）二次元配列編
+// https://zenn.dev/phpbeginners/articles/33e622b6f8192b
 class U190Array2Test extends TestCase
 {
     public function test_190_010(): void
     {
-        $r = [1, 2, 3];
+        $actual = [1, 2, 3];
 
-        $this->assertSame([1, 2, 3], $r);
+        $this->assertSame([1, 2, 3], $actual);
     }
 
     public function test_190_020(): void
     {
-        $r = [
+        $actual = [
             1, 
             2, 
             3
         ];
 
-        $this->assertSame([1, 2, 3], $r);
+        $this->assertSame([1, 2, 3], $actual);
     }
 
     public function test_190_030(): void
     {
-        $r = [
+        $actual = [
             [10, 11, 12], 
             [20, 21, 22], 
             [30, 31, 32], 
@@ -36,12 +41,12 @@ class U190Array2Test extends TestCase
             [10, 11, 12], 
             [20, 21, 22], 
             [30, 31, 32], 
-        ], $r);
+        ], $actual);
     }
 
     public function test_190_040(): void
     {
-        $r = [
+        $actual = [
             ['a', 'b', 'c'], 
             ['d', 'e', 'f'], 
             ['g', 'h', 'i'], 
@@ -51,95 +56,112 @@ class U190Array2Test extends TestCase
             ['a', 'b', 'c'], 
             ['d', 'e', 'f'], 
             ['g', 'h', 'i'], 
-        ], $r);
+        ], $actual);
     }
     
     public function test_190_050(): void
     {
-        $r = [
+        $actual = [
             1,
             2,
             3
         ];
 
-        $this->assertSame([1, 2, 3], $r);
+        $this->assertSame([1, 2, 3], $actual);
     }
 
     public function test_190_060(): void
     {
-        $r = [
+        $actual = [
             0 => 1,
             1 => 2,
             2 => 3,
         ];
 
-        $this->assertSame([1, 2, 3], $r);
+        $this->assertSame([1, 2, 3], $actual);
     }
 
     public function test_190_070(): void
     {
-        $r = [
+        $actual = [
             'a', 
             'b', 
             'c', 
         ];
 
-        $this->assertSame(['a', 'b', 'c'], $r);
+        $this->assertSame(['a', 'b', 'c'], $actual);
     }
 
     public function test_190_080(): void
     {
-        $r = [
+        $actual = [
             0 => 'a', 
             1 => 'b', 
             2 => 'c', 
         ];
 
-        $this->assertSame(['a', 'b', 'c'], $r);
+        $this->assertSame(['a', 'b', 'c'], $actual);
     }
 
     public function test_190_090(): void
     {
-        $r = [
+        $actual = [
             0  => 'a', 
             10 => 'b', 
             20 => 'c', 
         ];
 
-        $this->assertSame([0 => 'a', 10 => 'b', 20 => 'c'], $r);
+        $this->assertSame([0 => 'a', 10 => 'b', 20 => 'c'], $actual);
     }
 
     public function test_190_100(): void
     {
-        $r = [
+        $actual = [
             0   => 'a', 
             100 => 'b', 
             200 => 'c', 
         ];
 
-        $this->assertSame([0 => 'a', 100 => 'b', 200 => 'c'], $r);
+        $this->assertSame([0 => 'a', 100 => 'b', 200 => 'c'], $actual);
     }
 
     public function test_190_110(): void
     {
-        $r = [
+        $actual = [
             'first'  => 'a', 
             'second' => 'b', 
             'third'  => 'c', 
         ];
 
-        $this->assertSame(['first' => 'a', 'second' => 'b', 'third' => 'c'], $r);
+        $this->assertSame(['first' => 'a', 'second' => 'b', 'third' => 'c'], $actual);
     }
 
     public function test_190_115(): void
     {
-        $r = [
+        $actual = [
             'first'  => 'a', 
             'second' => 'b', 
             'third'  => 'c', 
         ];
 
-        $this->assertSame('a', $r['first']);
+        $this->assertSame('a', $actual['first']);
+    }
+
+    public function test_190_116(): void
+    {
+        $v = [
+            'first'  => 'a', 
+            'second' => 'b', 
+            'third'  => 'c', 
+        ];
+
+        $actual = $v['second'];
+
+        // QUIZ
+        $expected = 'b';
+        // /QUIZ
+
+        $this->assertSame($expected, $actual);
     }
 
     public function test_190_120(): void
@@ -247,25 +269,29 @@ class U190Array2Test extends TestCase
     public function test_190_170(): void
     {
         $prefectures = ['Tokyo', 'Oosaka', 'Aichi'];
-        $r = [];
+        $actual = [];
 
         foreach ($prefectures as $prefecture) {
-            $r[] = $prefecture . ' Love';
+            $actual[] = $prefecture . ' Love';
         }
 
-        $this->assertSame(['Tokyo Love', 'Oosaka Love', 'Aichi Love'], $r);
+        $this->assertSame(['Tokyo Love', 'Oosaka Love', 'Aichi Love'], $actual);
     }
 
     public function test_190_180(): void
     {
         $prefectures = ['東京都', '大阪府', '愛知県'];
-        $r = [];
+        $actual = [];
 
         foreach ($prefectures as $prefecture) {
-            $r[] = "{$prefecture}ラブ";
+            $actual[] = "{$prefecture}ラブ";
         }
 
-        $this->assertSame(['東京都ラブ', '大阪府ラブ', '愛知県ラブ'], $r);
+        // QUIZ
+        $expected = ['東京都ラブ', '大阪府ラブ', '愛知県ラブ'];
+        // /QUIZ
+
+        $this->assertSame($expected, $actual);
     }
 
     public function test_190_190(): void
@@ -276,17 +302,17 @@ class U190Array2Test extends TestCase
             '愛知県'  => 7542415,
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($population_kvs as $name => $population) {
-            $r[] = "{$name}の人口は{$population}人です。";
+            $actual[] = "{$name}の人口は{$population}人です。";
         }
 
         $this->assertSame([
             '東京都の人口は14047594人です。',
             '大阪府の人口は8837685人です。',
             '愛知県の人口は7542415人です。'
-        ], $r);
+        ], $actual);
     }
 
     public function test_190_200(): void
@@ -297,17 +323,21 @@ class U190Array2Test extends TestCase
             'ネズミ'  => 'rat',
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($translation_kvs as $japanese => $english) {
-            $r[] = "{$japanese}の英語訳は{$english}です。";
+            $actual[] = "{$japanese}の英語訳は{$english}です。";
         }
 
-        $this->assertSame([
+        // QUIZ
+        $expected = [
             '犬の英語訳はdogです。',
             '猫の英語訳はcatです。',
             'ネズミの英語訳はratです。',
-        ], $r);
+        ];
+        // /QUIZ
+
+        $this->assertSame($expected, $actual);
     }
 
     public function test_190_210(): void
@@ -318,17 +348,21 @@ class U190Array2Test extends TestCase
             'MIRAiE'  => 'https://www.mir-ai.co.jp/',
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($company_url_kvs as $company => $url) {
-            $r[] = "{$company}のホームページアドレスは {$url} です。";
+            $actual[] = "{$company}のホームページアドレスは{$url}です。";
         }
 
-        $this->assertSame([
-            'Yahooのホームページアドレスは https://www.yahoo.co.jp/ です。',
-            'Amazonのホームページアドレスは https://www.amazon.co.jp/ です。',
-            'MIRAiEのホームページアドレスは https://www.mir-ai.co.jp/ です。',
-        ], $r);
+        // QUIZ
+        $expected = [
+            'Yahooのホームページアドレスはhttps://www.yahoo.co.jp/です。',
+            'Amazonのホームページアドレスはhttps://www.amazon.co.jp/です。',
+            'MIRAiEのホームページアドレスはhttps://www.mir-ai.co.jp/です。',
+        ];
+        // /QUIZ
+
+        $this->assertSame($expected, $actual);
     }
     
     public function test_190_220(): void
@@ -339,12 +373,12 @@ class U190Array2Test extends TestCase
             '愛知県'  => [7410719, 7483128, 7542415],
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($population_kvs as $prefecture => $populations) {
-            $r[] = "{$prefecture}の人口推移";
+            $actual[] = "{$prefecture}の人口推移";
             foreach ($populations as $population) {
-                $r[] = $population;
+                $actual[] = $population;
             }
         }
 
@@ -361,7 +395,7 @@ class U190Array2Test extends TestCase
             7410719,
             7483128,
             7542415,
-        ], $r);
+        ], $actual);
     }    
     
     public function test_190_230(): void
@@ -384,11 +418,11 @@ class U190Array2Test extends TestCase
             ],
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($population_kvs as $prefecture => $population_kvs) {
             foreach ($population_kvs as $year => $population) {
-                $r[] = "{$prefecture}の{$year}年の人口は{$population}です。";
+                $actual[] = "{$prefecture}の{$year}年の人口は{$population}です。";
             }
         }
 
@@ -402,7 +436,7 @@ class U190Array2Test extends TestCase
             '愛知県の2010年の人口は7410719です。',
             '愛知県の2015年の人口は7483128です。',
             '愛知県の2020年の人口は7542415です。',
-        ], $r);
+        ], $actual);
     }    
 
     public function test_190_240(): void
@@ -425,15 +459,16 @@ class U190Array2Test extends TestCase
             ],
         ];
 
-        $r = [];
+        $actual = [];
 
         foreach ($animal_translation_kvs as $animal => $translation_kvs) {
             foreach ($translation_kvs as $language => $word) {
-                $r[] = "{$animal}は{$language}で{$word}です。";
+                $actual[] = "{$animal}は{$language}で{$word}です。";
             }
         }
 
-        $this->assertSame([
+        // QUIZ
+        $expected = [
             '犬は英語でdogです。',
             '犬は中国語で狗です。',
             '犬は韓国語で개です。',
@@ -443,7 +478,10 @@ class U190Array2Test extends TestCase
             'ネズミは英語でratです。',
             'ネズミは中国語で鼠です。',
             'ネズミは韓国語で쥐です。',
-        ], $r);
+        ];
+        // /QUIZ
+
+        $this->assertSame($expected, $actual);
     }    
     
     public function test_190_250(): void
@@ -453,16 +491,16 @@ class U190Array2Test extends TestCase
         $kvs['大阪府'] = 8837685;
         $kvs['愛知県'] = 7542415;
 
-        $r = [];
-        $r[] = $kvs['東京都'];
-        $r[] = $kvs['大阪府'];
-        $r[] = $kvs['愛知県'];
+        $actual = [];
+        $actual[] = $kvs['東京都'];
+        $actual[] = $kvs['大阪府'];
+        $actual[] = $kvs['愛知県'];
 
         $this->assertSame([
             14047594,
             8837685,
             7542415,
-        ], $r);
+        ], $actual);
     }
 
     public function test_190_260(): void
@@ -478,17 +516,17 @@ class U190Array2Test extends TestCase
             '京王電鉄' =>  84.7,
         ];
 
-        $r = [];
+        $actual = [];
 
         // 自分で foreach 文と回答をかいて下さい。
         
         // QUIZ
         foreach ($kvs as $name => $length) {
-            $r[] = "{$name}の路線総延長は {$length} キロです。";
+            $actual[] = "{$name}の路線総延長は {$length} キロです。";
         }
         // /QUIZ
 
-        $a = [
+        $expected = [
             '東武鉄道の路線総延長は 463.3 キロです。',
             '小田急電鉄の路線総延長は 120.5 キロです。',
             '東京メトロの路線総延長は 195.1 キロです。',
@@ -498,9 +536,8 @@ class U190Array2Test extends TestCase
             '京浜急行の路線総延長は 87.1 キロです。',
             '京王電鉄の路線総延長は 84.7 キロです。',
         ];
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
-
 
     public function test_190_270(): void
     {
@@ -539,16 +576,16 @@ class U190Array2Test extends TestCase
             ],
         ];
 
-        $r = [];
+        $actual = [];
 
         // 自分で foreach 文と回答をかいて下さい。
         // QUIZ
         foreach ($kvs as $name => $item) {
-            $r[] = "{$name}の路線総延長は {$item['length']} キロ、１日の乗降客数は {$item['passengers']} 人です。";
+            $actual[] = "{$name}の路線総延長は {$item['length']} キロ、１日の乗降客数は {$item['passengers']} 人です。";
         }
         // /QUIZ
 
-        $a = [
+        $expected = [
             '東武鉄道の路線総延長は 463.3 キロ、１日の乗降客数は 4524834 人です。',
             '小田急電鉄の路線総延長は 120.5 キロ、１日の乗降客数は 3575025 人です。',
             '東京メトロの路線総延長は 195.1 キロ、１日の乗降客数は 13673968 人です。',
@@ -559,11 +596,7 @@ class U190Array2Test extends TestCase
             '京王電鉄の路線総延長は 84.7 キロ、１日の乗降客数は 3250863 人です。',
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
-
-
-
-
 }
 

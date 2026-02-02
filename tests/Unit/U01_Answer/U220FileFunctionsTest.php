@@ -4,6 +4,8 @@ namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
+// ファイルシステム関数
+// https://www.php.net/manual/ja/ref.filesystem.php
 class U220FileFunctionsTest extends TestCase
 {
     // 
@@ -36,15 +38,15 @@ class U220FileFunctionsTest extends TestCase
     // dirname 4
     public function test_220_050_dirname(): void
     {
-        $r = dirname('/var/log/httpd/conf.d/vhost-www.conf');
-        $this->assertSame('/var/log/httpd/conf.d', $r);
+        $actual = dirname('/var/log/httpd/conf.d/vhost-www.conf');
+        $this->assertSame('/var/log/httpd/conf.d', $actual);
     }
 
     // basename  3
     public function test_220_060_basename(): void
     {
-        $r = basename('/var/log/httpd/conf.d/vhost-www.conf');
-        $this->assertSame('vhost-www.conf', $r);
+        $actual = basename('/var/log/httpd/conf.d/vhost-www.conf');
+        $this->assertSame('vhost-www.conf', $actual);
     }
 
     // pathinfo  12
@@ -75,22 +77,22 @@ class U220FileFunctionsTest extends TestCase
     // parse_str 2
     public function test_220_090_parse_str(): void
     {
-        parse_str("a=1&b=2&c=3&d[]=4&d[]=5", $r);
+        parse_str("a=1&b=2&c=3&d[]=4&d[]=5", $actual);
 
-        $this->assertSame(["a" => "1", "b" => "2", "c" => "3", "d" => [0 => "4", 1 => "5",]], $r);
+        $this->assertSame(["a" => "1", "b" => "2", "c" => "3", "d" => [0 => "4", 1 => "5",]], $actual);
     }
 
     // file_get_contents 23
     public function test_220_100_file_get_contents_local_file(): void
     {
-        $r = file_get_contents("/etc/hosts");
-        $this->assertTrue(str_contains($r, '127.0.0.1'));
+        $actual = file_get_contents("/etc/hosts");
+        $this->assertTrue(str_contains($actual, '127.0.0.1'));
     }
 
     public function test_220_110_file_get_contents_web(): void
     {
-        $r = file_get_contents("https://www.mir-ai.co.jp/");
-        $this->assertTrue(str_contains($r, 'ミライエ'));
+        $actual = file_get_contents("https://www.mir-ai.co.jp/");
+        $this->assertTrue(str_contains($actual, 'ミライエ'));
     }
 
     // file_put_contents 7
@@ -98,10 +100,10 @@ class U220FileFunctionsTest extends TestCase
     {
         $content = file_get_contents("https://www.mir-ai.co.jp/");
         $tmpfile = tempnam('/tmp', 'html');
-        $r = file_put_contents($tmpfile, $content);
+        $actual = file_put_contents($tmpfile, $content);
         unlink($tmpfile);
 
-        $this->assertTrue($r > 0);
+        $this->assertTrue($actual > 0);
     }
 
     // tempnam
@@ -117,10 +119,10 @@ class U220FileFunctionsTest extends TestCase
     {
         $uniq = uniqid();
         $path = "/tmp/unittest/{$uniq}/subdir";
-        $r = mkdir($path, 0777, true); // サブ階層も作成
+        $actual = mkdir($path, 0777, true); // サブ階層も作成
 
         rmdir($path);
-        $this->assertTrue($r);
+        $this->assertTrue($actual);
     }
 
     public function test_220_150_fetch_jma_xml(): void
@@ -187,9 +189,9 @@ class U220FileFunctionsTest extends TestCase
             }
         }
 
-        $r = $all_items;
+        $actual = $all_items;
 
-        $a = [
+        $expected = [
             [
                 "行" => "あ",
                 "品目" => "IHクッキングヒーター",
@@ -234,7 +236,7 @@ class U220FileFunctionsTest extends TestCase
             ]
         ];
 
-        $this->assertSame($a, $all_items);
+        $this->assertSame($expected, $all_items);
     }    
 
     // カンマで区切られたファイルの読み込みサンプル
@@ -245,7 +247,7 @@ class U220FileFunctionsTest extends TestCase
         $is_first = true;
         $col_names = [];
         $all_items = [];
-        $r = null;
+        $actual = null;
 
         $count = 1;
         if (($handle = fopen($filename, "r")) !== FALSE) {
@@ -273,8 +275,8 @@ class U220FileFunctionsTest extends TestCase
             echo "{$filename}を読み込めませんでした。";
         }
 
-        $r = $all_items;
-        $a = [
+        $actual = $all_items;
+        $expected = [
             [
                 "都道府県コード又は市区町村コード" => "221309",
                 "NO" => "20240913501",
@@ -357,7 +359,7 @@ class U220FileFunctionsTest extends TestCase
             ]            
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
 
     }
 }

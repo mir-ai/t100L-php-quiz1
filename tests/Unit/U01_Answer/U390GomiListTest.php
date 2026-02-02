@@ -12,8 +12,13 @@ class U390GomiListTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // 浜松市で処理手数料が1240円の品目を抽出する
+    // 実務課題 : 浜松市のごみ品目情報の検索・抽出
+
+    // tests/Unit/data/gomi_items_utf8.tsv (または tests/Unit/data/gomi_items_small_utf8.tsv)
+    // を読み込んで、処理手数料が1240円のごみの、「品目」と「詳細」と「大きさ・長さ」欄を結合して配列に出力してみよう。
     // 
+ 
+    // 結果はこれになります。
     private function getOutput(): array
     {
         return [
@@ -47,9 +52,6 @@ class U390GomiListTest extends TestCase
     }
 
     // じぶんでやってみよう
-    // tests/Unit/data/gomi_items_utf8.tsv (または tests/Unit/data/gomi_items_small_utf8.tsv)
-    // を読み込んで、処理手数料が1240円のごみの、「品目」と「詳細」と「大きさ・長さ」欄を結合して配列に出力します。
-
     public function test_390_020_expensive_gomi(): void
     {
         // 元データを読み込む
@@ -96,12 +98,12 @@ class U390GomiListTest extends TestCase
             $expensives[] = "{$item['品目']}{$item['詳細']}{$item['大きさ・長さ']}";
         }
 
-        $r = $expensives;
+        $actual = $expensives;
 
         // /QUIZ
-        $a = $this->getOutput();
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 上級課題1

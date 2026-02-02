@@ -67,7 +67,7 @@ class cp_unit_questions extends Command
 
             $content = file_get_contents($src_file_path);
 
-            // QUIZ - /QUIZ 間を $a = null; に置き換える
+            // QUIZ - /QUIZ 間を $expected = null; に置き換える
             $content = $this->eraseAnswer($content);
 
             // namespaceを置き換える
@@ -107,7 +107,7 @@ class cp_unit_questions extends Command
                 if (str_contains($line, ' QUIZ')) {
                     // QUIZを見つけた
                     $in_question = true;
-                    $outs[] = "\t\t\$a = null;";
+                    $outs[] = "\t\t\$expected = null;";
                 }
 
             } else {

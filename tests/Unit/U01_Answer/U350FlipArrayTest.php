@@ -12,7 +12,9 @@ class U350FlipArrayTest extends TestCase
         $this->assertTrue(true);
     }
 
-    // クイズ： getXmlString() のテキストから、 getReportTable() の配列を作成して下さい。
+    // 課題 : 配列の変換
+
+    // クイズ： getXmlString() の配列を行列に倒して、getOutput() の配列を作成して下さい。
     // これが入力データの配列
     private function getInput(): array
     {
@@ -37,7 +39,7 @@ class U350FlipArrayTest extends TestCase
         ];
     }
 
-    // 要素分解１
+    // ヒント: 要素分解１
     // 文字列の配列を、２次元配列に変換する
     public function test_350_020_lines_to_2d_array() : void
     {
@@ -46,21 +48,21 @@ class U350FlipArrayTest extends TestCase
             '123',
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($lines as $line) {
             $chars = str_split($line);
             $r[] = $chars;
         }
 
-        $a = [
+        $expected = [
             ['a', 'b', 'c'],
             ['1', '2', '3'],
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解２
+    // ヒント: 要素分解２
     // ２次元配列の、縦と横を入れ替えたものを作成する
     public function test_350_030_flip_2d_array() : void
     {
@@ -69,23 +71,23 @@ class U350FlipArrayTest extends TestCase
             ['1', '2', '3'],
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($v as $y => $items) {
             foreach ($items as $x => $val) {
                 $r[$x][$y] = $val;
             }
         }
 
-        $a = [
+        $expected = [
             ['a', '1'],
             ['b', '2'],
             ['c', '3'],
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // 要素分解3
+    // ヒント: 要素分解3
     // ２次元配列を、文字列に直す
     public function test_350_040_2d_array_to_texts(): void
     {
@@ -95,21 +97,21 @@ class U350FlipArrayTest extends TestCase
             ['c', '3'],
         ];
 
-        $r = [];
+        $actual = [];
         foreach ($v as $y => $items) {
             $r[] = implode('', $items);
         }
 
-        $a = [
+        $expected = [
             'a1',
             'b2',
             'c3',
         ];
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
-    // じぶんでやってみよう
+    // やってみよう
     // getInputの値を読んで、getOutputを作って下さい。
     public function test_350_050_flip(): void
     {
@@ -141,10 +143,10 @@ class U350FlipArrayTest extends TestCase
 
         // /QUIZ
 
-        $r = $outputs;
-        $a = $this->getOutput();
+        $actual = $outputs;
+        $expected = $this->getOutput();
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
 }        

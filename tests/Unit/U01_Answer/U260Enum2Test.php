@@ -54,23 +54,23 @@ class U260Enum2Test extends TestCase
     // Enumの配列を取得
     public function test_260_020_enum1(): void
     {
-        $r = Weather2::cases();
-        $a = [
+        $actual = Weather2::cases();
+        $expected = [
             Weather2::Hare,
             Weather2::Kumori,
             Weather2::Ame,
         ];
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
 
     }
 
     // 値の配列を取得
     public function test_260_030_enum2(): void
     {
-        $r = Weather2::values();
+        $actual = Weather2::values();
         $expected = [1, 2, 3];
 
-        $this->assertSame($expected, $r);
+        $this->assertSame($expected, $actual);
     }
 
     // 値のラベルを取得
@@ -82,13 +82,13 @@ class U260Enum2Test extends TestCase
     // 値とレベルの連想配列を取得
     public function test_260_050_enum4(): void
     {
-        $r = Weather2::options();
-        $a = [
+        $actual = Weather2::options();
+        $expected = [
             1 => '晴れ',
             2 => '曇り',
             3 => '雨',
         ];
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
     
 }

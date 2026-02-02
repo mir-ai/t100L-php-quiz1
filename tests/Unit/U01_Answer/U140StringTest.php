@@ -10,180 +10,194 @@ class U140StringTest extends TestCase
 {
     public function test_140_010(): void
     {
-        $r = 'abc';
+        $actual = 'abc';
 
         // QUIZ
-        $a = 'abc';
+        $expected = 'abc';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_020(): void
     {
-        $r = "abc";
+        $actual = "abc";
 
         // QUIZ
-        $a = 'abc';
+        $expected = 'abc';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_030(): void
     {
         $n = 1;
-        $r = 'abc{$n}';
+        $actual = 'abc{$n}';
 
         // QUIZ
-        $a = 'abc{$n}';
+        $expected = 'abc{$n}';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_040(): void
     {
         $n = 1;
-        $r = "abc{$n}";
+        $actual = "abc{$n}";
 
         // QUIZ
-        $a = 'abc1';
+        $expected = 'abc1';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_050(): void
     {
         $s = 'def';
-        $r = "abc{$s}";
+        $actual = "abc{$s}";
 
         // QUIZ
-        $a = 'abcdef';
+        $expected = 'abcdef';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_060(): void
     {
-        $r = 'a' . 'b' . 'c';
+        $actual = 'a' . 'b' . 'c';
 
         // QUIZ
-        $a = 'abc';
+        $expected = 'abc';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_070(): void
     {
-        $r = 'a' . 'b' . 'c' . 1 . 2 . 3;
+        $actual = 'a' . 'b' . 'c' . 1 . 2 . 3;
 
         // QUIZ
-        $a = 'abc123';
+        $expected = 'abc123';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_071(): void
     {
-        $r = '';
-        $r .= '1';
+        $actual = '';
+        $actual .= '1';
 
         // QUIZ
-        $r .= '2';
+        $actual .= '2';
         // /QUIZ
 
-        $a = '12';
+        $expected = '12';
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_080(): void
     {
-        $r = '\n';
+        $actual = '\n';
 
         // QUIZ
-        $a = '\n';
+        $expected = '\n';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_090(): void
     {
-        $r = ("\n" == '\n');
+        $actual = "\n";
 
         // QUIZ
-        $a = false;
+        $expected = "\n";
         // /QUIZ
         
-        $this->assertSame($a, $r);
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual);
     }
 
     // シングルクォートでむと、\t は \t という文字になります。
     public function test_140_091(): void
     {
-        $r = '\t';
+        $actual = '\t';
 
         // QUIZ
-        $a = '\t';
+        $expected = '\t';
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual);
     }
 
     // ダブルクォートで囲むと、\t はタブになります。
     public function test_140_092(): void
     {
-        $r = ("\t" == '\t');
+        $actual = "\t";
 
         // QUIZ
-        $a = false;
+        $expected = "\t";
         // /QUIZ
+
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
         
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_140_100(): void
     {
-        $r = ('"' == "\"");
+        $actual = '"';
 
         // QUIZ
-        $a = true;
+        $expected = "\"";
         // /QUIZ
 
-        $this->assertSame($a, $r); // "
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual); // "
     }
 
     public function test_140_110(): void
     {
-        $r = ("'" == '\'');
+        $actual = "'";
 
         // QUIZ
-        $a = true;
+        $expected = '\'';
         // /QUIZ
 
-        $this->assertSame($a, $r); // '
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual); // '
     }
 
     public function test_140_120(): void
     {
-        $r = ("\\" == '\\');
+        $actual = "\\";
 
         // QUIZ
-        $a = true;
+        $expected = '\\';
         // /QUIZ
 
-        $this->assertSame($a, $r); # \
+        echo (__FUNCTION__ . ": actual は '{$actual}' です。\n");
+
+        $this->assertSame($expected, $actual); # \
     }
 
     public function test_140_130(): void
     {
-        $r = <<<END
+        $actual = <<<END
     *
    * *
   *   *
@@ -192,17 +206,14 @@ class U140StringTest extends TestCase
 END;
 
         // QUIZ
-        $a = "    *
+        $expected = "    *
    * *
   *   *
  *     *
 *********";
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
-
-    
-
 }
 

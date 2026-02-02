@@ -6,94 +6,100 @@ use PHPUnit\Framework\TestCase;
 
 class U120BoolTest extends TestCase
 {
+    // 論理型 (boolean)
+    // https://www.php.net/manual/ja/language.types.boolean.php#language.types.boolean
+
+    // 論理演算子
+    // https://www.php.net/manual/ja/language.operators.logical.php
+    
     public function test_120_010(): void
     {
-        $r = true;
-        $r = ! $r;
+        $v = true;
+        $actual = ! $v;
 
         // QUIZ
-        $a = false;
+        $expected = false;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_020(): void
     {
-        $r = false;
-        $r = ! $r;
+        $v = false;
+        $actual = ! $v;
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_030(): void
     {
-        $r = true && true;
+        $actual = true && true;
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_040(): void
     {
-        $r = true && false;
+        $actual = true && false;
 
         // QUIZ
-        $a = false;
+        $expected = false;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_050(): void
     {
-        $r = true || true;
+        $actual = true || true;
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_060(): void
     {
-        $r = true || false;
+        $actual = true || false;
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_070(): void
     {
-        $r = false || true;
+        $actual = false || true;
 
         // QUIZ
-        $a = true;
+        $expected = true;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_120_080(): void
     {
-        $r = false || false;
+        $actual = false || false;
 
         // QUIZ
-        $a = false;
+        $expected = false;
         // /QUIZ
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 

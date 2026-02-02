@@ -4,79 +4,81 @@ namespace Tests\Unit\U01_Answer;
 
 use PHPUnit\Framework\TestCase;
 
+// 配列
+// https://www.php.net/manual/ja/language.types.array.php
 class U150ArrayTest extends TestCase
 {
     public function test_150_010(): void
     {
-        $r = [];
+        $actual = [];
 
-        $this->assertSame([], $r);
+        $this->assertSame([], $actual);
     }
 
     public function test_150_020(): void
     {
-        $r = [1, 2, 3];
+        $actual = [1, 2, 3];
 
-        $this->assertSame([1, 2, 3], $r);
+        $this->assertSame([1, 2, 3], $actual);
     }
 
     public function test_150_030(): void
     {
-        $r = [1, 2];
+        $actual = [1, 2];
         $r[] = 3;
 
         // QUIZ
-        $a = [1, 2, 3];
+        $expected = [1, 2, 3];
         // /QUIZ      
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_150_040(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 1;
         $r[] = 2;
         $r[] = 3;
 
         // QUIZ
-        $a = [1, 2, 3];
+        $expected = [1, 2, 3];
         // /QUIZ      
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_150_050(): void
     {
-        $r = ['a', 'b', 'c'];
+        $actual = ['a', 'b', 'c'];
 
-        $this->assertSame(['a', 'b', 'c'], $r);
+        $this->assertSame(['a', 'b', 'c'], $actual);
     }
 
     public function test_150_060(): void
     {
-        $r = ['a', 'b'];
+        $actual = ['a', 'b'];
         $r[] = 'c';
 
         // QUIZ
-        $a = ['a', 'b', 'c'];
+        $expected = ['a', 'b', 'c'];
         // /QUIZ      
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 
     public function test_150_070(): void
     {
-        $r = [];
+        $actual = [];
         $r[] = 'a';
         $r[] = 'b';
         $r[] = 'c';
 
         // QUIZ
-        $a = ['a', 'b', 'c'];
+        $expected = ['a', 'b', 'c'];
         // /QUIZ      
 
-        $this->assertSame($a, $r);
+        $this->assertSame($expected, $actual);
     }
 }
 
