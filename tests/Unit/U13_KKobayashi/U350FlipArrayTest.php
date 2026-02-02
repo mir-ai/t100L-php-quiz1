@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U13_KKobayashi;
 
 use PHPUnit\Framework\TestCase;
 
@@ -120,27 +120,7 @@ class U350FlipArrayTest extends TestCase
         $outputs = [];
 
         // QUIZ
-
-        // 文字列の配列を、２次元配列に変換する
-        $original_items = [];
-        foreach ($inputs as $input) {
-            $chars = str_split($input);
-            $original_items[] = $chars;
-        }
-
-        // ２次元配列の、縦と横を入れ替えたものを作成する
-        $transposed = [];
-        foreach ($original_items as $y => $items) {
-            foreach ($items as $x => $val) {
-                $transposed[$x][$y] = $val;
-            }
-        }
-
-        // ２次元配列を、文字列に直す
-        foreach ($transposed as $y => $items) {
-            $outputs[] = implode('', $items);
-        }
-
+		$expected = null;
         // /QUIZ
 
         $actual = $outputs;
@@ -149,4 +129,4 @@ class U350FlipArrayTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-}        
+}

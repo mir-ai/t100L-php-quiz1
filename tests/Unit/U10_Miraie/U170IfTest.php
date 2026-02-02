@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U10_Miraie;
 
 use PHPUnit\Framework\TestCase;
 
@@ -26,7 +26,7 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $expected = ['a', 'b'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -44,7 +44,7 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $expected = ['a'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -62,7 +62,7 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $expected = ['a', 'b'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -80,7 +80,7 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $expected = ['a', 'c'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -100,7 +100,7 @@ class U170IfTest extends TestCase
         }
 
         // QUIZ
-        $expected = ['a', 'c'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -121,7 +121,7 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $expected = ['a', 'b'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -140,7 +140,7 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $expected = ['a', 'd'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -159,7 +159,7 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $expected = ['a', 'e'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);
@@ -180,7 +180,7 @@ class U170IfTest extends TestCase
         };
 
         // QUIZ
-        $expected = ['a', 'c'];
+		$expected = null;
         // /QUIZ
 
         $this->assertSame($expected, $actual);

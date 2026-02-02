@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U10_Miraie;
 
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ class U115CommentTest extends TestCase
 
         // VSCode で複数の行をまとめてコメントを外すには、
         // 複数行を選択した後、 Command 長押し → / を押します。
-        // 
+        //
         // コメントのある行に再び実行すると、 コメントが外れます。
 
         // if (1) {

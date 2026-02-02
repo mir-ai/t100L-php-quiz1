@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U10_Miraie;
 
 use PHPUnit\Framework\TestCase;
 
@@ -28,8 +28,8 @@ class U150ArrayTest extends TestCase
         $actual[] = 3;
 
         // QUIZ
-        $expected = [1, 2, 3];
-        // /QUIZ      
+		$expected = null;
+        // /QUIZ
 
         $this->assertSame($expected, $actual);
     }
@@ -42,8 +42,8 @@ class U150ArrayTest extends TestCase
         $actual[] = 3;
 
         // QUIZ
-        $expected = [1, 2, 3];
-        // /QUIZ      
+		$expected = null;
+        // /QUIZ
 
         $this->assertSame($expected, $actual);
     }
@@ -61,8 +61,8 @@ class U150ArrayTest extends TestCase
         $actual[] = 'c';
 
         // QUIZ
-        $expected = ['a', 'b', 'c'];
-        // /QUIZ      
+		$expected = null;
+        // /QUIZ
 
         $this->assertSame($expected, $actual);
     }
@@ -75,8 +75,8 @@ class U150ArrayTest extends TestCase
         $actual[] = 'c';
 
         // QUIZ
-        $expected = ['a', 'b', 'c'];
-        // /QUIZ      
+		$expected = null;
+        // /QUIZ
 
         $this->assertSame($expected, $actual);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U13_KKobayashi;
 
 use PHPUnit\Framework\TestCase;
 
@@ -66,14 +66,14 @@ class U360PlotXyTest extends TestCase
         return [
             #000000000011
             #0123456789AB
-            '  @@@@@@@@  ', #0 
-            ' @        @ ', #1 
-            '@  O    O  @', #2 
-            '@          @', #3 
-            '@  \____/  @', #4 
-            '@          @', #5 
-            ' @        @ ', #6 
-            '  @@@@@@@@  ', #7 
+            '  @@@@@@@@  ', #0
+            ' @        @ ', #1
+            '@  O    O  @', #2
+            '@          @', #3
+            '@  \____/  @', #4
+            '@          @', #5
+            ' @        @ ', #6
+            '  @@@@@@@@  ', #7
         ];
     }
 
@@ -91,7 +91,7 @@ class U360PlotXyTest extends TestCase
             $max_x = max($x, $max_x);
             $max_y = max($y, $max_y);
         }
-        
+
         $this->assertSame(11, $max_x);
         $this->assertSame(7, $max_y);
     }
@@ -182,39 +182,11 @@ class U360PlotXyTest extends TestCase
         $inputs = $this->getInput();
 
         // QUIZ
-
-        // 要素分解1. 縦横の最大サイズを作成する
-        [$max_x, $max_y] = [0, 0];
-
-        foreach ($inputs as $input) {
-            [$y, $x, $char] = $input;
-            $max_x = max($x, $max_x);
-            $max_y = max($y, $max_y);
-        }
-
-        // 要素分解2. 空白のみのキャンバスを作成する
-        $canvas = [];
-        for ($y = 0; $y <= $max_y; $y++) {
-            $canvas[] = array_fill(0, $max_x + 1, ' ');
-        }
-
-        // 要素分解3. 座標データに従って、キャンバスに文字を描く
-        foreach ($inputs as $input) {
-            [$y, $x, $char] = $input;
-            $canvas[$y][$x] = $char;
-        }
-
-        // 要素分解4. 表示する
-        $actual = [];
-        foreach ($canvas as $line) {
-            $actual[] = implode('', $line);
-            echo implode('', $line) . "\n";
-        }
-
+		$expected = null;
         // /QUIZ
         $expected = $this->getOutput();
 
         $this->assertSame($expected, $actual);
     }
 
-}        
+}

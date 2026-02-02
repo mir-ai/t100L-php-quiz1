@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\U01_Answer;
+namespace Tests\Unit\U13_KKobayashi;
 
 use PHPUnit\Framework\TestCase;
 
@@ -208,7 +208,7 @@ class U370PopulationTest extends TestCase
                 "男性" => "70",
                 "女性" => "0",
                 "備考" => "",
-            ],            
+            ],
         ];
 
         $r = [];
@@ -302,69 +302,7 @@ class U370PopulationTest extends TestCase
         $actual = [];
 
         // QUIZ
-
-        // 要素分解1 ファイルから各項目を読んで取得する
-        $lines = explode("\n", $contents);
-        $col_names = [];
-        $original_lines = []; // 2次元配列。
-        foreach ($lines as $no => $line) {
-            if (! $line) {
-                continue;
-            }
-            $line = trim($line);
-            $cols = explode(',', $line);
-
-            if ($no == 0) {
-                $col_names = $cols;
-                continue;
-            }
-
-            $item = [];
-            foreach ($col_names as $x => $col_name) {
-                $item[$col_name] = $cols[$x] ?? '';
-            }
-            $original_lines[] = $item;
-        }
-
-        // 要素分解2
-        // データを中間配列1に入れる
-        // $data['市区町村名'] = [
-        //   'total_count' => 100,
-        //   'elder_count' => 60,
-        // ]
-        $count_by_town_names = [];
-        foreach ($original_lines as $item) {
-            $town_name = "{$item['市区町村名']}{$item['区']}{$item['地区']}{$item['大字']}";
-
-            $total_count = $count_by_town_names[$town_name]['total_count'] ?? 0;
-            $count_by_town_names[$town_name]['total_count'] = $total_count + intval($item['合計']);
-
-            if ($item['年齢'] >= 65) {
-                $elder_count = $count_by_town_names[$town_name]['elder_count'] ?? 0;
-                $count_by_town_names[$town_name]['elder_count'] = $elder_count + intval($item['合計']);
-            }
-        }
-
-        // 要素分解3 中間配列１から各町の人数と高齢者数を読んで、高齢者率を計算する
-        $elder_rates_by_town = [];
-        foreach ($count_by_town_names as $city_name => $count_item) {
-            $total_count = $count_item['total_count'];
-            $elder_count = $count_item['elder_count'];
-            if ($total_count) {
-                $elder_rate = ($elder_count / $total_count);
-            }
-
-            $elder_rates_by_town[$city_name] = $elder_rate;
-        }
-
-        // 要素分解4 高齢化率の多い順に並べ替える
-        arsort($elder_rates_by_town);
-
-        // 要素分解5 上位3件を取得
-        $elsest_towns = array_slice($elder_rates_by_town, 0, 3);
-
-        $actual = array_keys($elsest_towns);
-
+		$expected = null;
         // /QUIZ
         $expected = $this->getOutput();
 
@@ -377,21 +315,21 @@ class U370PopulationTest extends TestCase
 
     // 上級課題１
     // 高齢化率の低い順に町を３件出力してみよう
-    public function test_370_070_youngest_town(): void    
+    public function test_370_070_youngest_town(): void
     {
         $this->assertTrue(true);
     }
 
     // 上級課題２
     // ０歳児の多い順に町を３件出力してみよう
-    public function test_370_080_happy_newborn_town(): void    
+    public function test_370_080_happy_newborn_town(): void
     {
         $this->assertTrue(true);
     }
 
     // 上級課題3
     // 町ごとの平均年齢を算出してみよう
-    public function test_380_090_average_age_by_town(): void    
+    public function test_380_090_average_age_by_town(): void
     {
         $this->assertTrue(true);
     }
@@ -409,4 +347,4 @@ class U370PopulationTest extends TestCase
     {
         $this->assertTrue(true);
     }
-}        
+}
