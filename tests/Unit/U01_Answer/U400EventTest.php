@@ -93,6 +93,8 @@ class U400EventTest extends TestCase
     // 区ごと(中央区,浜名区,天竜区)のイベントの開催件数を求める    
     public function test_400_030_event_count_by_wards()
     {
+        // QUIZ
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -100,6 +102,8 @@ class U400EventTest extends TestCase
     // 日毎のイベントの開催件数を求める
     public function test_400_040_event_count_by_date()
     {
+        // QUIZ
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -107,6 +111,8 @@ class U400EventTest extends TestCase
     // 日毎の区ごとのイベントの開催件数を求める
     public function test_400_050_event_count_by_date_and_ward()
     {
+        // QUIZ
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -114,6 +120,8 @@ class U400EventTest extends TestCase
     // イベント名に浜松が含まれるイベント名をすべて抽出する（浜松、ハママツ、はままつ、HAMAMATSU,Hamamatsu,hamamatu）
     public function test_400_060_filter_hamamatsu_event_names()
     {
+        // QUIZ
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -121,6 +129,8 @@ class U400EventTest extends TestCase
     // 開始時間を0時〜23時（1時間刻み）にした場合の件数を求める。
     public function test_400_070_event_count_by_start_hours()
     {
+        // QUIZ
+        // /QUIZ
         $this->assertTrue(true);
     }
 
