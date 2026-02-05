@@ -98,7 +98,7 @@ class U360PlotXyTest extends TestCase
 
     // ヒント 要素分解２
     // 空白のみのキャンバスを作成する
-    public function test_350_030_flip_2d_array() : void
+    public function test_360_030_flip_2d_array() : void
     {
         $max_x = 3;
         $max_y = 2;
@@ -119,7 +119,7 @@ class U360PlotXyTest extends TestCase
 
     // ヒント 要素分解3
     // 座標データに従って、キャンバス（配列）に文字を描く
-    public function test_350_040_2d_array_to_texts(): void
+    public function test_360_040_2d_array_to_texts(): void
     {
         $actual = [
             [' ', ' ', ' ', ' '],
@@ -151,7 +151,7 @@ class U360PlotXyTest extends TestCase
 
     // ヒント 要素分解4
     // 座標データに従って、キャンバス（配列）に文字を描く
-    public function test_350_040_draw_2d_array(): void
+    public function test_360_040_draw_2d_array(): void
     {
         $v = [
             ['A', 'B', 'C', ' '],
@@ -176,7 +176,7 @@ class U360PlotXyTest extends TestCase
 
     // やってみよう
     // getInputの値を読んで、getOutputを作って下さい。
-    public function test_350_draw(): void
+    public function test_360_draw(): void
     {
         // 入力を取得する
         $inputs = $this->getInput();

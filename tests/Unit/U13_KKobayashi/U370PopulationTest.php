@@ -317,6 +317,9 @@ class U370PopulationTest extends TestCase
     // 高齢化率の低い順に町を３件出力してみよう
     public function test_370_070_youngest_town(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -324,6 +327,9 @@ class U370PopulationTest extends TestCase
     // ０歳児の多い順に町を３件出力してみよう
     public function test_370_080_happy_newborn_town(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -331,6 +337,9 @@ class U370PopulationTest extends TestCase
     // 町ごとの平均年齢を算出してみよう
     public function test_380_090_average_age_by_town(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -338,6 +347,9 @@ class U370PopulationTest extends TestCase
     // 男性と女性の平均年齢差を算出してみよう
     public function test_390_100_average_age_by_gender(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -345,6 +357,9 @@ class U370PopulationTest extends TestCase
     // 中央区、浜名区、天竜区の平均年齢を算出する
     public function test_400_110_average_age_by_ward(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 }

@@ -74,6 +74,9 @@ class U390GomiListTest extends TestCase
     // アイロンの連絡ごみの処理手数料を探す
     public function test_390_030_iron_price(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -82,6 +85,9 @@ class U390GomiListTest extends TestCase
     // 「排出方法･備考」に「電池類は取り外」と書かれているもの
     public function test_390_040_without_battery(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 
@@ -89,6 +95,9 @@ class U390GomiListTest extends TestCase
     // 全部の品目を１点ずつ排出したら、総額いくらになるかを求める。
     public function test_390_050_total_prices(): void
     {
+        // QUIZ
+		$expected = null;
+        // /QUIZ
         $this->assertTrue(true);
     }
 

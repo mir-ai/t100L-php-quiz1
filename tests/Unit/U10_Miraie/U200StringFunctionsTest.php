@@ -984,10 +984,10 @@ class U200StringFunctionsTest extends TestCase
         $actual = strtr('あいう', 'う', 'ウ');
         $expected = 'もやウ';
 
-        $this->assertSame($expected, $actual); // 日本語には利用不可!!!
+        $this->assertSame($expected, $actual); // ３引数版は日本語には利用不可!!!
     }
 
-    public function test_200_760_strtr_recursive(): void
+    public function test_200_761_strtr_recursive(): void
     {
         $actual = strtr('one', ['one' => 'two', 'two' => 'three']);
 
@@ -996,7 +996,27 @@ class U200StringFunctionsTest extends TestCase
 		$expected = null;
         // /QUIZ
 
-        $this->assertSame($expected, $actual); // 日本語には利用不可
+        $this->assertSame($expected, $actual);
+    }
+
+    public function test_200_762_strtr_recursive(): void
+    {
+        $actual = strtr('浜名区、北区が対象です。', ['浜名区' => '浜北区', '北区' => '中央区', ]);
+
+        // 一度置換した結果は、再び置換されない
+        $expected = '浜北区、中央区が対象です。';
+
+        $this->assertSame($expected, $actual); // 2引数版は日本語もOK
+    }
+
+    public function test_200_763_strtr_long(): void
+    {
+        $actual = strtr('みらい市', ['みらい' => 'future', 'みらい市' => 'Mirai City']);
+
+        // 長い文字から処理される
+        $expected = 'Mirai City';
+
+        $this->assertSame($expected, $actual); // 2引数版は日本語もOK
     }
 
     // sscanf  4
